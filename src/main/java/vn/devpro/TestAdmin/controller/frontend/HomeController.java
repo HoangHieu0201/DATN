@@ -125,33 +125,6 @@ public class HomeController extends BaseController implements FinalConstant{
 		            model.addAttribute("products", products);
 		        }
 				
-//				// Ktra tieu chi tim kkiem tu giá den giá
-//				String beginPrice = null;
-//				String endPrice = null;
-//				if (!StringUtils.isEmpty(request.getParameter("beginPrice"))
-//						&& !StringUtils.isEmpty(request.getParameter("endPrice"))) {
-//					beginPrice = request.getParameter("beginPrice");
-//					endPrice = request.getParameter("endPrice");
-//					
-//					//ĐỊnh dạng tiền
-//					String endPriceStr = request.getParameter("endPrice");
-//					String beginPriceStr = request.getParameter("beginPrice");
-//					// Loại bỏ các ký tự không phải số
-//					beginPriceStr = beginPriceStr.replaceAll("[^\\d.]", "");
-//					endPriceStr = endPriceStr.replaceAll("[^\\d.]", "");
-//
-//					// Chuyển đổi chuỗi thành số thực
-//					double beginPriceFormat = Double.parseDouble(beginPriceStr);
-//					double endPriceFormat = Double.parseDouble(endPriceStr);
-//					
-//					DecimalFormat currencyFormat = new DecimalFormat("#,###.##");
-//					String formattedBeginPrice = currencyFormat.format(beginPriceFormat);
-//					model.addAttribute("formattedBeginPrice", formattedBeginPrice);
-//					String formattedEndPrice = currencyFormat.format(endPriceFormat);
-//					model.addAttribute("formattedEndPrice", formattedEndPrice);
-//				}
-//				productSearch.setBeginPrice(beginPrice);
-//				productSearch.setEndPrice(endPrice);
 				
 				 // Tìm theo mức giá
 				String[] priceRanges = request.getParameterValues("priceRange");
