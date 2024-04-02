@@ -18,31 +18,19 @@
 	<!-- variables -->
 	<jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
 	
-	<!-- Style -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
+
 </head>
 
 </head>
 
 <body>
-	<div class="wrapper">
-		<!-- header -->
+	<!-- header -->
 		<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
-
-		<!-- Menu nu ngang -->
-    	<jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
-    
-    	<div class="jumbotron text-center"> <!-- cho vào box có size lớn -->
-	        <h1 style="color: crimson;">𝕄𝕆𝔹𝕀𝕃𝔼 𝕎𝕆ℝ𝕃𝔻</h1>
-	        <p>❤Uy tín chất lượng - Kết nối yêu thương❤</p>
-	        <form class="form-inline justify-content-center">
-	            <input type="text" class="form-control" size="50" placeholder="Nhập sản phẩm cần tìm">
-	            <button type="button" class="btn btn-danger">Tìm</button>
-	        </form>
-    	</div>
+	<div class="wrapper">
+		
 
 		<!-- content -->
-		<main class="main">
+		<main class="main" style="padding: 1% 0% 0 0%;">
 
 			<!-- Danh mục sản phẩm -->
 			<div class="main__products">
@@ -114,6 +102,9 @@
 																			<td align="center"><a
 																				href="${classpath }/product-detail/${item.productId }"
 																				role="button" class="btn btn-secondary">Edit</a> 
+																			<td align="center"><a
+																				href="" onclick="daleteCartProduct(${item.productId })"
+																				role="button" class="btn btn-danger">Delete</a> 	
 																		</tr>
 																	</c:forEach>
 																</tbody>
@@ -285,6 +276,33 @@
 			//$ === jQuery
 			jQuery.ajax({
 				url : "/update-product-quantity",
+				type : "POST",
+				contentType : "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+
+				success : function(jsonResult) {
+					let totalProducts = jsonResult.totalCartProducts; 
+					//Viet lai so luong sau khi bam nut -, +
+					$("#productQuantity_" + jsonResult.productId).html(jsonResult.newQuantity); 
+				},
+
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert("An error occur");
+				}
+			});
+		}
+	</script>
+	
+	<script type="text/javascript">
+		daleteCartProduct = function(_productId) {
+			let data = {
+				productId : _productId
+			};
+
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/daleteCartProduct/{productId}",
 				type : "POST",
 				contentType : "application/json",
 				data : JSON.stringify(data),

@@ -137,7 +137,7 @@ public class ProductController extends BaseController implements FinalConstant{
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(final Model model) {
 		
-		List<User> users = userService.findAll();
+		List<User> users = userService.getAdmins();
 		model.addAttribute("users", users);
 		
 		List<Category> categories = categoryService.findAllActive();
@@ -171,7 +171,7 @@ public class ProductController extends BaseController implements FinalConstant{
 	public String edit(final Model model,
 			@PathVariable("productId") int productId) {
 		
-		List<User> users = userService.findAllActive();
+		List<User> users = userService.getAdmins();
 		model.addAttribute("users", users);
 		
 		List<Category> categories = categoryService.findAllActive();

@@ -3,6 +3,7 @@ package vn.devpro.TestAdmin.controller.frontend;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,9 @@ import vn.devpro.TestAdmin.controller.BaseController;
 
 import vn.devpro.TestAdmin.dto.FinalConstant;
 import vn.devpro.TestAdmin.model.Contact;
+import vn.devpro.TestAdmin.model.Product;
 import vn.devpro.TestAdmin.service.ContactService;
+import vn.devpro.TestAdmin.service.ProductService;
 
 @Controller
 public class ContactController extends BaseController implements FinalConstant{
@@ -29,12 +32,19 @@ public class ContactController extends BaseController implements FinalConstant{
 	@Autowired
 	private ContactService contactService;
 	
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	//@RequestMapping : ánh xạ 1 action đến 1 action method trong controller
 	public String contact(final Model model,
 			final HttpServletRequest request,
 			final HttpServletResponse response) throws IOException {
+		
+		//Lấy sp gợi ý		
+		List<Product> searchProducts = productService.findAllActive();
+		model.addAttribute("searchProducts", searchProducts);
+		
 		return "frontend/contact/contact";
 	}
 	
@@ -43,6 +53,10 @@ public class ContactController extends BaseController implements FinalConstant{
 	public String contactSend(final Model model,
 			final HttpServletRequest request,
 			final HttpServletResponse response) throws IOException {
+		
+		//Lấy sp gợi ý		
+		List<Product> searchProducts = productService.findAllActive();
+		model.addAttribute("searchProducts", searchProducts);		
 		
 		String message = null;
 		Contact contact = new Contact();

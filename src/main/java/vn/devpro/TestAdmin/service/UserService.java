@@ -88,4 +88,11 @@ public class UserService extends BaseService<User> implements FinalConstant{
 			return super.saveOrUpdate(user);
 		}
 
+		
+		//Lấy các admin
+		public List<User> getAdmins() {
+			return super.executeNativeSql(
+					"SELECT * FROM tbl_user where tbl_user.id in"
+					+ "(select tbl_user_role.user_id from tbl_user_role where tbl_user_role.role_id =1)");
+		}
 }

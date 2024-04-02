@@ -10,22 +10,14 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${classpath}/frontend/bootstrap/bootstrap.min.css">
 <jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
-<!-- Style -->
-<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
+
 </head>
 <body>
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
 
-	<!-- Menu nu ngang -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
-	<div class="jumbotron text-center">
-		<!-- cho vào box có size lớn -->
-		<h1 style="color: crimson;">𝕄𝕆𝔹𝕀𝕃𝔼 𝕎𝕆ℝ𝕃𝔻</h1>
-		<p>❤Uy tín chất lượng - Kết nối yêu thương❤</p>
-	</div>
 
-	<main class="main">
+	<main class="main" style="padding: 1% 0% 0 0%;">
 		<div class="main__contact">
 			<div class="container">
 				<div class="row">

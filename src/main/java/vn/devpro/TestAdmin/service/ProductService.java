@@ -33,7 +33,7 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 	}
 	
 	@Transactional
-	public void deleteProductId(int id) {
+	public void deleteProductById(int id) {
 		super.deleteById(id);
 	}
 	
@@ -359,7 +359,7 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 		}
 		
 		//Lay id 5 các sp bán chạy nhất
-		public List<Product> hotProducts() {
+		public List<Product> Top5hotProducts() {
 			String sql = "SELECT tbl_product.id, tbl_product.category_id, tbl_product.name, tbl_product.avatar, tbl_product.price, tbl_product.sale_price,tbl_product.create_by,\r\n"
 					+ "tbl_product.update_by, tbl_product.create_date, tbl_product.update_date, tbl_product.status, tbl_product.is_hot, \r\n"
 					+ "tbl_product.short_description, tbl_product.seo\r\n"
@@ -368,6 +368,12 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 					+ "ORDER BY SUM(tbl_sale_order_product.quantity) DESC\r\n"
 					+ "LIMIT 5\r\n"
 					+ "";
+			return super.executeNativeSql(sql);
+		}	
+		
+		//Các sp hot
+		public List<Product> hotProducts() {
+			String sql = "SELECT * FROM tbl_product where status =1 and is_hot = 1 ;";
 			return super.executeNativeSql(sql);
 		}	
 }

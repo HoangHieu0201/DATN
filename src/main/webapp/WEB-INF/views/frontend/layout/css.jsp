@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>	
 
 <link rel="stylesheet" href="${classpath}/frontend/css/index.css">
+<link rel="stylesheet" href="${classpath}/frontend/css/style.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/contact.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/contact-edit.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/login.css">

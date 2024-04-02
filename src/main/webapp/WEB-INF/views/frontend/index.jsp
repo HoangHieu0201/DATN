@@ -1,163 +1,314 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>	
+	pageEncoding="utf-8"%>
+
+<!-- directive của JSTL -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title }</title>
+    <link rel="stylesheet" href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="${classpath}/frontend/bootstrap/bootstrap.min.css">
 	<jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
 	
-	<!-- Style -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
+
+    <style>
+		*{
+   			 background: #f4f4f4;
+		}
+    </style>
 </head>
-<body>
-    <!-- Header -->
+
+<body id="page-top">
+
+	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
+
+    <section>
+        <div class="container-fluid padding-top">
+            <div class="slider_bar">
+                <div class="slider">
+                    <img src="${classpath}/frontend/images/slider/slider_4.png" alt="">
+                </div>
+                <div class="image_demo">
+                    <a href="">
+                        <img src="${classpath}/frontend/images/slider/demo1.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="${classpath}/frontend/images/slider/demo2.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="${classpath}/frontend/images/slider/demo3.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="${classpath}/frontend/images/slider/demo4.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container-fluid">
+            <!-- hot product -->
+            <div class="hotProducts">
+                <div class="header">
+                    <h3>
+                        HOT PRODUCT
+                        <i class="fa-solid fa-fire"></i>
+                    </h3>
+                    <div class="timer" id="timer">
+                        <strong> </strong><strong> </strong><span> :
+                        </span><strong> </strong><strong> </strong><span> :
+                        </span><strong>  </strong><strong> 
+                        </strong>
+                    </div>
+                </div>
+                <!-- Cac san pham hot-->
+                <div class="products">
+                    <div class="row">
+                    	<c:forEach items="${hotProducts }" var="product">
+	                        <!-- Sản phẩm 1 -->
+	                        <div class="col-12 col-lg-2 col-md-6 mt-1 mb-4 dienthoai">
+	                            <div class="card">
+	                                <a href="${classpath }/product-detail/${product.id}"> <img class="card-img-top"
+	                                        src="${classpath }/FileUploads/${product.avatar }" 
+	                                        style="width: 188.75px;height: 200px;" alt="avatar">
+	                                </a>
+	                                <div class="card-body">
+	                                    <h2 class="card-title">
+	                                        <a href="${classpath }/product-detail/${product.id}">${product.name }</a>
+	                                    </h2>
 	
-    <!-- Menu nu ngang -->
-    <jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
-    
-    <!-- Jumbotron tìm kiếm -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/jumbotron.jsp"></jsp:include>
-
-    <!-- Slider -->
-     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="${classpath}/frontend/images/apple/Iphone 13 promax.jpg" alt="First slide">
-            <div class="carousel-caption d-none d-md-block caption">
-                <h5>Nhanh tay mua ngay</h5>
-                <p>Đặt hàng ngay hôm nay để có mức giá ưu đãi</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="${classpath}/frontend/images/apple/Iphone 15.jpg" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block caption">
-                <h5>Nhanh tay mua ngay</h5>
-                <p>Đặt hàng ngay hôm nay để có mức giá ưu đãi</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="${classpath}/frontend/images/apple/Iphone 12.jpg" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block caption">
-                <h5>Nhanh tay mua ngay</h5>
-                <p>Đặt hàng ngay hôm nay để có mức giá ưu đãi</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-    <!-- Gioi thiệu -->
-    <div id="about" class="container-fluid">
-        <div class="row">
-            <div class="col-sm-8">
-                <h2>Giới thiệu Mobileworld.vn</h2> <br>
-                <h4>Mobileworld.vn - Bên cạnh những sản phẩm chất lượng, uy tín - Hệ thống thế giới di động của chúng tôi 
-                    còn là đơn vị vận chuyển sản phẩm, ship hàng tận nơi cho khách hàng. Hướng đến một cửa hàng đa chức năng.
-                </h4> <br>
-                <p>Chúng tôi cam kết những sản phẩm chất lượng cao nhất cho quý khách hàng đến với cửa 
-                    hàng của chúng tôi. Ngoài ra, chính sách bảo hành sẽ khiến các bạn cảm thấy yên tâm hơn 
-                    khi đặt niềm tin vào của hàng của chúng tôi.
-                </p> <br>
-                <button class="btn btn-default btn-lg">Liên hệ với chúng tôi</button>
-            </div>
-            <div class="col-sm-4 align-items-center">
-                <img class="img-fluid max-width: 100% height: 100%" src="${classpath}/frontend/images/banner1.jpg"  >
-            </div>
-        </div>
-    </div>
-
-    <!-- Giá tị -->
-    <div class="container-fluid bg-grey">
-        <div class="row">
-            <div class="col-sm-4">
-                <img class="img-fluid max-width: 100% height: 100%" src="${classpath}/frontend/images/banner1.jpg"  >
-            </div>
-            <div class="col-sm-8">
-                <h2>Giá trị của Mobileworld.vn mang lại</h2> <br>
-                <h4><strong>Sứ mệnh : </strong>Đơn vị tiên phong tại Việt Nam cam kết hàng chính hãng chất lượng cao. Đồng thời 
-                cũng chịu trách nhiệm trực tiếp việc ship sản phẩm đến tận tay khách hàng.</h4>
-                <br>
-                <p><strong>Tầm nhìn : </strong>Bên cạnh hệ thống bán hàng trực tuyến này, chúng tôi còn mở rộng sang các mảng bán hàng offline 
-                giới thiệu quảng bá qua các tờ rơi, hay mở rộng thị trường sang nước ngoài bằng cách tuyển các nhân viên bán hàng 
-                có trình độ ngoại ngữ khá, có thể giao tiếp ổn.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dịch vụ -->
-    <div id="service" class="container-fluid text-center">
-        <h2>Dịch vụ</h2>
-        <h4>Các dịch vụ của chúng tôi bao gồm </h4>
-        <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <a href="">
-                        <img class="card-img-top" src="${classpath}/frontend/images/apple/Iphone 12.jpg" alt="">
-                    </a>
-                    <div class="card-body">
-                        <h2 class="card-title">
-                            <a href="">Dịch vụ mua sắm</a>
-                        </h2>
-                        <p class="card-text">Quy trình áp dụng đối với các đơn vị trực thuộc MobileWorld khi thực hiện công việc mua sắm hàng hóa và các dịch vụ phi tư vấn từ các nguồn vốn đầu tư.</p>
-                        <button class="btn btn-primary btn-block">Liên hệ</button>
+	                                    <p class="card-text">
+	                                        <fmt:formatNumber value="${product.salePrice }" minFractionDigits="0">
+	                                            </fmt:formatNumber>
+	                                        <sup>vnđ</sup>
+	                                    </p>
+	                                    <div class="buttons">
+	                                        <a class="btn-favorite"
+	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            <i class="fa-regular fa-heart"></i></a>
+	                                        <a class="btn-cart"
+	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            <i class="fa-solid fa-cart-plus"></i></a>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- End san pham 1 -->
+	                    </c:forEach>    
+                        
                     </div>
                 </div>
             </div>
-        
-            <div class="col-sm-4">
-                <div class="card">
-                    <a href="">
-                        <img class="card-img-top" src="${classpath}/frontend/images/apple/Iphone 13 promax.jpg" alt="">
-                    </a>
-                    <div class="card-body">
-                        <h2 class="card-title">
-                            <a href="">Dịch vụ vận chuyển</a>
-                        </h2>
-                        <p class="card-text">Quy trình áp dụng đối với các đơn vị trực thuộc MobileWorld khi thực hiện công việc mua sắm hàng hóa và các dịch vụ phi tư vấn từ các nguồn vốn đầu tư.</p>
-                        <button class="btn btn-primary btn-block">Liên hệ</button>
-                    </div>
-                </div>
-            </div>
-      
-            <div class="col-sm-4">
-                <div class="card">
-                    <a href="">
-                        <img class="card-img-top" src="${classpath}/frontend/images/apple/Iphone 15 plus.jpg" alt="">
-                    </a>
-                    <div class="card-body">
-                        <h2 class="card-title">
-                            <a href="">Dịch vụ khác</a>
-                        </h2>
-                        <p class="card-text">Quy trình áp dụng đối với các đơn vị trực thuộc MobileWorld khi thực hiện công việc mua sắm hàng hóa và các dịch vụ phi tư vấn từ các nguồn vốn đầu tư.</p>
-                        <button class="btn btn-primary btn-block">Liên hệ</button>
-                    </div>
-                </div>
+            <div class="banner">
+                <img src="${classpath}/frontend/images/slider/banner1.png" alt="">
             </div>
 
+            <!-- Flash sale -->
+            <div class="flash-sales">
+                <div class="header">
+                    <h3>
+                        F
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                        ASH SALE ONLINE
+                    </h3>
+                    <div class="timer" id="timer">
+                        <strong> 2 </strong><strong> 4 </strong><span> :
+                        </span><strong> 0 </strong><strong> 5 </strong><span> :
+                        </span><strong> 4 </strong><strong> 6
+                        </strong>
+                    </div>
+                </div>
+                <!-- Cac san pham flash sale-->
+                <div class="products">
+                    <div class="row">
+                    	<c:forEach items="${searchProducts }" var="product">
+	                        <!-- Sản phẩm 1 -->
+	                        <div class="col-12 col-lg-2 col-md-6 mt-1 mb-4 dienthoai">
+	                            <div class="card">
+	                                <a href="${classpath }/product-detail/${product.id}"> <img class="card-img-top"
+	                                        src="${classpath }/FileUploads/${product.avatar }"
+	                                        style="width: 188.75px;height: 200px;" alt="avatar">
+	                                </a>
+	                                <div class="card-body">
+	                                    <h2 class="card-title">
+	                                        <a href="${classpath }/product-detail/${product.id}">${product.name }</a>
+	                                    </h2>
+	
+	                                    <p class="card-text">
+	                                        <fmt:formatNumber value="${product.salePrice }" minFractionDigits="0">
+	                                            </fmt:formatNumber>
+	                                        <sup>vnđ</sup>
+	                                    </p>
+	                                    <div class="buttons">
+	                                        <a class="btn-favorite"
+	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            <i class="fa-regular fa-heart"></i></a>
+	                                        <a class="btn-cart"
+	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            <i class="fa-solid fa-cart-plus"></i></a>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- End san pham 1 -->
+	                    </c:forEach>    
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="${classpath}/frontend/images/slider/banner2.png" alt="">
+            </div>
+            <div class="corevalue">
+                <div class="item">
+                    <span class="icon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </span>
+                    <div class="text">
+                        <span>Sản phẩm</span>
+                        <strong>CHÍNH HÃNG</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <span class="icon">
+                        <i class="fa-solid fa-truck"></i>
+                    </span>
+                    <div class="text">
+                        <span>Miễn phí vận chuyển</span>
+                        <strong>TOÀN QUỐC</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <span class="icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </span>
+                    <div class="text">
+                        <span>Hotline hỗ trợ</span>
+                        <strong>1900.2091</strong>
+                    </div>
+                </div>
+                <div class="item">
+                    <span class="icon">
+                        <i class="fa-solid fa-retweet"></i>
+                    </span>
+                    <div class="text">
+                        <span>Thủ tục đổi trả</span>
+                        <strong>DỄ DÀNG</strong>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 
- <!-- Footer -->
+   
+ 	<!-- Footer -->
     <jsp:include page="/WEB-INF/views/frontend/layout/footer.jsp"></jsp:include>
     
     <jsp:include page="/WEB-INF/views/frontend/layout/js.jsp"></jsp:include>
+
+    <script type="text/javascript">
+        // Lấy tất cả các phần tử có class là "timer"
+        var timerElements = document.getElementsByClassName("timer");
+
+        // Hàm để cập nhật hiển thị của timer
+        function updateTimer(timerElement, hours, minutes, seconds) {
+            // Cập nhật nội dung của phần tử timer
+            timerElement.innerHTML = `<strong>${hours}</strong><span>:</span><strong>${minutes}</strong><span>:</span><strong>${seconds}</strong>`;
+        }
+
+        // Hàm đếm ngược
+        function countdown() {
+            var hours = 24; // Số giờ
+            var minutes = 59; // Số phút
+            var seconds = 59; // Số giây
+
+            // Lặp qua tất cả các phần tử timer và cập nhật hiển thị cho mỗi phần tử
+            Array.from(timerElements).forEach(function (timerElement) {
+                // Cập nhật hiển thị ban đầu cho mỗi phần tử timer
+                updateTimer(timerElement, hours, minutes, seconds);
+            });
+
+            // Đếm ngược
+            var countdownInterval = setInterval(function () {
+                // Giảm số giây
+                seconds--;
+
+                // Nếu số giây dưới 0
+                if (seconds < 0) {
+                    // Giảm số phút và đặt lại số giây
+                    minutes--;
+                    seconds = 59;
+                }
+
+                // Nếu số phút dưới 0
+                if (minutes < 0) {
+                    // Giảm số giờ và đặt lại số phút
+                    hours--;
+                    minutes = 59;
+                }
+
+                // Lặp qua tất cả các phần tử timer và cập nhật hiển thị cho mỗi phần tử
+                Array.from(timerElements).forEach(function (timerElement) {
+                    // Cập nhật hiển thị timer cho mỗi phần tử
+                    updateTimer(timerElement, hours, minutes, seconds);
+                });
+
+                // Nếu số giờ dưới 0
+                if (hours < 0) {
+                    // Dừng đếm ngược
+                    clearInterval(countdownInterval);
+                    // Hiển thị thông báo hoặc thực hiện hành động khác khi hết thời gian
+                    console.log("Hết thời gian!");
+                }
+            }, 1000); // Thực hiện cập nhật mỗi giây (1000 milliseconds)
+        }
+
+        // Gọi hàm đếm ngược khi trang được tải
+        countdown();
+
+    </script>
+    
+    <!-- Add to cart -->
+    <script type="text/javascript">
+        addToCart = function (_productId, _quantity, _productName) {
+            //alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+            let data = {
+                productId: _productId, //lay theo id
+                quantity: _quantity,
+                productName: _productName,
+            };
+
+            //$ === jQuery
+            jQuery.ajax({
+                url: "/add-to-cart",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                dataType: "json", //Kieu du lieu tra ve tu controller la json
+
+                success: function (jsonResult) {
+                    alert(jsonResult.code + ": " + jsonResult.message);
+                    let totalProducts = jsonResult.totalCartProducts;
+                    $("#totalCartProductsId").html(totalProducts);
+                },
+
+                error: function (jqXhr, textStatus, errorMessage) {
+                    alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+                },
+            });
+        }
+    </script>
 </body>
+
 </html>

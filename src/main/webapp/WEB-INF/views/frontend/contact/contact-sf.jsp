@@ -11,15 +11,13 @@
     <title>${title}</title>
     <link rel="stylesheet" type="text/css" media="screen" href="${classpath}/frontend/bootstrap/bootstrap.min.css">
     <jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
-    <!-- Style -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
+    
 </head>
 <body>
     <!-- Header -->
 	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
 	
-    <!-- Menu nu ngang -->
-    <jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
+    
     <main class="main">
         <div class="main__contact">
             <div class="container">

@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
     <jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
     
-    <!-- Style -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
+	<style>
+		*{
+			background: none;
+		}
+	</style>
 </head>
 <body>
     <!-- Header -->
@@ -25,11 +28,11 @@
     
 
     <!-- Menu nu ngang -->
-    <jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
+    
     
     <!-- nội dung giữa trang-->
-    <main>
-        <div class="container">
+    <main style="padding: 1% 5% 0 5%;">
+        <div class="container-fluid">
             <p class="mb-2 mt-1 pb-3">
                 <a href="Index.html">Trang chủ</a> 
                 > <a href="Product.html">Cửa hàng</a> 

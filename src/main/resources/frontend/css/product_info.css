@@ -1,5 +1,5 @@
 /* logo */
-.rounded{
+/* .rounded{
     width: 70px;
     border-radius: 18.25rem!important;
     margin-left: 10px;
@@ -13,7 +13,7 @@
     color: #f6f6f6;
 }
 
-/* Menu */
+Menu
 .nav{
     background-color: #1ECBF4;
     position: sticky;
@@ -29,7 +29,7 @@
 .menu a{
     color: #f6f6f6;
     font-size: 30px;
-}
+} */
 
 
 /* Main */
@@ -101,7 +101,7 @@ fieldset label{
 
 /* footer */
 
-footer{
+/* footer{
 margin: 0px;
 background-color: #ffffff;
 border-top: 1px solid black;
@@ -110,7 +110,7 @@ border-top: 1px solid black;
 .content_footer{
 display: flex;
 }
-/* company */
+company
 .company{
 width: calc(100%/3);
 padding: 32px 0 0px 0;
@@ -132,7 +132,7 @@ text-decoration: none;
 color: #2d2c2c;
 }
 
-/* Menu footer */
+Menu footer
 .menu_footer{
 width: calc((100%*2)/3);
 display: flex;
@@ -158,7 +158,7 @@ color: #2d2c2c;
 .map{
 border: 5px solid #e4e1e1;
 }
-/* Footer_end */
+Footer_end
 .footer_end{
 background-color: #1790cf;
 align-items: center;
@@ -171,3 +171,4 @@ padding: 20px 0;
 color: #d9d6d6;
 }
 
+ */

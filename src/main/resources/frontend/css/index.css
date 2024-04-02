@@ -1,122 +1,167 @@
-.storeName{
-    align-items: center;
+/* Slider */
+section {
+    padding: 0 1%;
+    background: #f4f4f4;
+}
+
+.padding-top {
+    padding-top: 1%;
+}
+
+.slider_bar .slider img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.image_demo {
     display: flex;
-    font-size: 30px;
+    align-items: center;
     justify-content: center;
-    color: #f6f6f6;
+    margin-top: 2%;
 }
 
-.nav{
-    background-color: #1ECBF4;
-    position: sticky;
-    top:0;
-    left: 0;
-    z-index: 1;
+.image_demo a {
+    padding: 0 1%;
 }
 
-.nav li:hover a{
-    background-color: Red;
+
+/* Main */
+main {
+    padding: 5% 0 0 0;
 }
 
-.menu a{
-    color: #f6f6f6;
+.hotProducts .header, .flash-sales .header{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.hotProducts .header h3, .flash-sales .header h3{
     font-size: 30px;
+    text-decoration: underline;
+    font-weight: 700;
+    margin: 0 30px 0 0;
+    color: #fc521d;
+    text-decoration: none;
 }
 
-.jumbotron{
-    overflow: hidden;
-    background-color: #1ECBF4;
-    color: white;
-    padding: 0px 0px 25px 0;
-    border-radius: 0;
-    margin: 0;
+.timer {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    justify-content: right;
+}
+
+.timer strong {
+    font-size: 25px;
+    background-color: black;
+    color: #f4f4f4;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+.timer span {
+    font-weight: bold;
+}
+
+.products{
+    padding: 1% 3%;
+}
+
+.products>.row{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.dienthoai{
+    border: 0;
+    background-color: white;
+}
+.dienthoai .card-body .card-title a{
+    color: #000;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-size: 14px;
+    text-align: center;
 }
 
 
-.container-fluid{
-    padding: 60px 50px;
-}
-.bg-grey{
-    background-color: #f6f6f6 ;
-}
-
-
-
-/* footer */
-
-footer{
-margin: 0px;
-background-color: #ffffff;
-border-top: 1px solid black;
+.dienthoai .card-body .buttons{
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
-.content_footer{
-display: flex;
-}
-/* company */
-.company{
-width: calc(100%/3);
-padding: 32px 0 0px 0;
-}
-
-.company .title, .menu_footer .title{
-text-transform: uppercase;
-font-weight: bold;
-font-size: 18px;
-}
-
-
-.company p{
-margin: 7px 0;
-}
-
-.content_footer a{
-text-decoration: none;
-color: #2d2c2c;
-}
-
-/* Menu footer */
-.menu_footer{
-width: calc((100%*2)/3);
-display: flex;
-padding: 32px 0 0px 0;
-}
-
-.item_menu_footer{
-width: calc(100%/3);
-}
-
-.item_menu_footer .title {
-margin-bottom: 15px ;
-}
-
-.item_menu_footer ul{
+.dienthoai .card-body .buttons a{
     padding: 0;
-    margin: 0;
-    list-style-type: none;
+    margin: 0 10px 0 0;
+    cursor: pointer;
 }
 
-.item_menu_footer li{
-padding: 7px 0;
+.dienthoai .card-body .buttons a i{
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: rgb(5, 128, 13);
+    color: #f4f4f4;
+    padding: 3px;
+    font-size: 25px;
 }
 
-.item_menu_footer a{
-color: #2d2c2c;
+/* banner */
+.banner {
+    margin: 20px 0 0 0;
+    padding: 0 0 20px 0;
 }
 
-.map{
-border: 5px solid #e4e1e1;
-}
-/* Footer_end */
-.footer_end{
-background-color: #1790cf;
-align-items: center;
-width: 100%;
+.banner img{
+    border-radius: 10px;
+    width: 100%;
 }
 
-.footer_end p{
-margin: 0;
-padding: 20px 0;
-color: #d9d6d6;
+/* Flash sale giong hot product dinh nghia o tren */
+.flash-sales{
+    margin-top: 40px;
 }
 
+.flash-sales .header h3 i{
+    margin: 0 -6px 0 -4px;
+}
+
+/* Thanh trên footer */
+main .corevalue {
+    display: flex;
+    padding: 10px 60px 30px 60px;
+}
+
+.corevalue .item {
+    display: flex;
+    width: 25%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.corevalue .item .icon {
+    color: #00483d;
+    font-size: 60px;
+    margin-right: 10px;
+    background: linear-gradient(to right, #00917a, #00483d);
+    -webkit-background-clip: text;
+}
+
+.corevalue .item .text {
+    text-align: left;
+    padding-bottom: 15px;
+}
+
+.corevalue .item .text span {
+    display: block;
+    font-size: 13px;
+}
+
+.corevalue .item .text strong {
+    display: block;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+}

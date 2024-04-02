@@ -34,14 +34,14 @@
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img src="${classpath}/backend/img/banner2.jpg" style="width:110% ;height: 90% ;" alt="">
+                        <img src="${classpath}/backend/img/banner2.jpg" style="border-radius: 10px;width:110% ;height: 100% ;" alt="">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
@@ -61,10 +61,6 @@
                                         <input type="text" class="form-control form-control-user" id="name" name = "name"
                                             placeholder="Full Name" value="${name }" required>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email" name = "email"
-                                        placeholder="Email Address" value="${email }">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -87,22 +83,15 @@
                                             placeholder="Address" value="${address }">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="email" name = "email"
+                                        placeholder="Email Address" value="${email }">
+                                </div>
                                 
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
 	                                    Register Account
-	                            </button>    
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+	                            </button>  
                             </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
                             <div class="text-center">
                                 <a class="small" href="${classpath }/login">Already have an account? Login!</a>
                             </div>

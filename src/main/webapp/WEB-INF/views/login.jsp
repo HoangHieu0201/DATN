@@ -35,7 +35,7 @@
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="container-fluid">
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -47,7 +47,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
-                                <img src="${classpath}/backend/img/banner2.jpg" style="width:110% ;" alt="">
+                                <img src="${classpath}/backend/img/banner2.jpg" style="width:110% ;border-radius: 8px 0px 0px 8px;" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -79,23 +79,13 @@
                                             </div>
                                         </div>
 										<button type="submit" class="btn btn-primary btn-user btn-block"
-											style="width: 50%; margin: 10px 0 2px 0;">
+											style="width: 100%; margin: 10px 0 2px 0;">
 											Login
 										</button>
-										<hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="${classpath }/signup">Create an Account!</a>
+                                    <div class="text-center" style="border-radius: 50px;background-color: royalblue;">
+                                        <a class="small" href="${classpath }/signup" style="color: white">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-.storeName{
+/* .storeName{
     align-items: center;
     display: flex;
     font-size: 30px;
@@ -48,7 +48,7 @@
 .bg-grey{
     background-color: #f6f6f6 ;
 }
-
+ */
 
 /* Form */
 .form{
@@ -75,74 +75,3 @@
     width: 45px;
 }
 
-/* footer */
-
-footer{
-margin: 0px;
-background-color: #ffffff;
-border-top: 1px solid black;
-}
-
-.content_footer{
-display: flex;
-}
-/* company */
-.company{
-width: calc(100%/3);
-padding: 32px 0 0px 0;
-}
-
-.company .title, .menu_footer .title{
-text-transform: uppercase;
-font-weight: bold;
-font-size: 18px;
-}
-
-
-.company p{
-margin: 7px 0;
-}
-
-.content_footer a{
-text-decoration: none;
-color: #2d2c2c;
-}
-
-/* Menu footer */
-.menu_footer{
-width: calc((100%*2)/3);
-display: flex;
-padding: 32px 0 0px 0;
-}
-
-.item_menu_footer{
-width: calc(100%/3);
-}
-
-.item_menu_footer .title {
-margin-bottom: 15px ;
-}
-
-.item_menu_footer li{
-padding: 7px 0;
-}
-
-.item_menu_footer a{
-color: #2d2c2c;
-}
-
-.map{
-border: 5px solid #e4e1e1;
-}
-/* Footer_end */
-.footer_end{
-background-color: #1790cf;
-align-items: center;
-width: 100%;
-}
-
-.footer_end p{
-margin: 0;
-padding: 20px 0;
-color: #d9d6d6;
-}

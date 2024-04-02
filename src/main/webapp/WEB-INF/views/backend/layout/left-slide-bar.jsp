@@ -50,11 +50,11 @@
             </li>
 
             <!-- Nav Item - role -->
-            <li class="nav-item">
+           <%--  <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/role/list">
                     <i class="fa-brands fa-critical-role"></i>
                     <span>Roles</span></a>
-            </li>
+            </li> --%>
 
             <!-- Nav Item - order -->
             <li class="nav-item">

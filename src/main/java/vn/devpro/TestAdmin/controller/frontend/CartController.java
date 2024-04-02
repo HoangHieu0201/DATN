@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -96,6 +97,10 @@ public class CartController extends BaseController implements FinalConstant{
 	public String cartView(final Model model,
 							final HttpServletRequest request) throws IOException{
 		
+		//Lấy sp gợi ý		
+		List<Product> searchProducts = productService.findAllActive();
+        model.addAttribute("searchProducts", searchProducts);
+		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("cart") != null) {
 			Cart cart = (Cart) session.getAttribute("cart");
@@ -137,6 +142,33 @@ public class CartController extends BaseController implements FinalConstant{
 			return ResponseEntity.ok(jsonResult);	
 		}
 		
+		//Xoá sản phẩm ttrong giỏ hàng
+		@RequestMapping(value = "/daleteCartProduct", method = RequestMethod.POST)	
+		public ResponseEntity<Map<String, Object>> deleteCartProduct(final HttpServletRequest request,
+				@RequestBody ProductCart productCart) throws IOException{
+			
+			Map<String, Object> jsonResult = new HashMap<String, Object>();
+			
+			HttpSession session = request.getSession();
+			//Lay gio hang trong sesstion
+			// + Kiem tra gio hang da dc tao trong session chua?
+			if(session.getAttribute("cart") != null) { //da co gio hang
+				Cart cart = (Cart)session.getAttribute("cart"); //Lay gio hang
+				//Cap nhat so luong
+				int index = cart.findProductById(productCart.getProductId());
+				BigInteger oldQuantity = cart.getProductCarts().get(index).getQuantity();
+				BigInteger newQuantity = oldQuantity.add(productCart.getQuantity()); //+1/-1
+				if(newQuantity.intValue() < 1) {
+					newQuantity = BigInteger.ONE;
+				}
+				cart.getProductCarts().get(index).setQuantity(newQuantity);
+				jsonResult.put("newQuantity", newQuantity);
+			}
+			jsonResult.put("productId", productCart.getProductId());
+			return ResponseEntity.ok(jsonResult);	
+		}
+		
+		
 		// Đặt hàng
 		@RequestMapping(value = "/place-order", method = RequestMethod.POST)
 		public ResponseEntity<Map<String, Object>> placeOrder(final HttpServletRequest request,
@@ -144,6 +176,7 @@ public class CartController extends BaseController implements FinalConstant{
 
 			Map<String, Object> jsonResult = new HashMap<String, Object>();
 
+			Boolean checkout = false;
 			// Kiem tra thong tin customer bắt buộc
 			if (StringUtils.isEmpty(customer.getTxtName())) {
 				jsonResult.put("message", "Bạn chưa nhập họ tên");
@@ -195,10 +228,14 @@ public class CartController extends BaseController implements FinalConstant{
 					saleOrderService.saveOrder(saleOrder);
 
 					jsonResult.put("message", "Bạn đã đặt hàng thành công, cảm ơn bạn !");
-
+					checkout = true;
+					jsonResult.put("checkout", checkout);
+					jsonResult.put("errorMessage", "Đặt hàng ko thành công");
+					
 					// Xoa gio hang sau khi da dat hàng
-					cart = new Cart();
-					session.setAttribute("cart", cart);
+//					cart = new Cart();
+//					session.setAttribute("cart", cart);
+					cart.getProductCarts().clear();
 				}
 
 			}

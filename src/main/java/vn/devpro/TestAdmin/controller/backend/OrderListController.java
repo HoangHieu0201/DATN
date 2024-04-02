@@ -158,7 +158,7 @@ public class OrderListController extends BaseController implements FinalConstant
 	public String edit(final Model model,
 			@PathVariable("saleOrderId") int saleOrderId) {
 		
-		List<User> users = userService.findAll();
+		List<User> users = userService.getAdmins();
 		model.addAttribute("users", users);
 		
 		//Lay order trong db bang id

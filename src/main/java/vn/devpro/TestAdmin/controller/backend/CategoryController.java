@@ -40,7 +40,7 @@ public class CategoryController extends BaseController{
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(final Model model) {
 		
-		List<User> users = userService.findAll();
+		List<User> users = userService.getAdmins();
 		model.addAttribute("users", users);
 		
 		Category category = new Category();
@@ -64,7 +64,7 @@ public class CategoryController extends BaseController{
 	public String edit(final Model model,
 			@PathVariable("categoryId") int categoryId) {
 		
-		List<User> users = userService.findAll();
+		List<User> users = userService.getAdmins();
 		model.addAttribute("users", users);
 		
 		//Lay category trong db bang id

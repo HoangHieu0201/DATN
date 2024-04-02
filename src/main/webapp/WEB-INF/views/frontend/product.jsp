@@ -17,23 +17,16 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${classpath}/frontend/bootstrap/bootstrap.min.css">
 <jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
+<link rel="stylesheet" href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
 
-<!-- Style -->
-<jsp:include page="/WEB-INF/views/frontend/layout/style.jsp"></jsp:include>
 </head>
 <body id="page-top">
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
-
-	<!-- Menu nu ngang -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/menu_ngang.jsp"></jsp:include>
-
-
-	<!-- Jumbotron tìm kiếm -->
-	<jsp:include page="/WEB-INF/views/frontend/layout/jumbotron.jsp"></jsp:include>
+	
 
 	<!-- Begin main -->
-	<main>
+	<main style="padding: 1% 0 0 0;">
 		<form action="${classpath }/product" method="get">
 			<div class="container-fluid p-3">
 				<p class="mb-2 mt-1 pb-3">
@@ -139,12 +132,12 @@
 									<div class="col-12 col-lg-4 col-md-6 mt-1 mb-4">
 										<div class="card">
 											<a href="${classpath }/product-detail/${product.id}"> <img
-												class="card-img-top"
+												class="card-img-top" style="width: 305.22px;height: 300px;"
 												src="${classpath }/FileUploads/${product.avatar }"
 												alt="avatar">
 											</a>
 											<div class="card-body">
-												<h2 class="card-title">
+												<h2 class="card-title" style="font-size: 1rem;">
 													<a href="${classpath }/product-detail/${product.id}">${product.name }</a>
 												</h2>
 												<%-- <p class="card-text">${product.shortDescription }</p> --%>
