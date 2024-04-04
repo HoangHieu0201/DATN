@@ -163,6 +163,7 @@ public class OrderListController extends BaseController implements FinalConstant
 		
 		//Lay order trong db bang id
 		SaleOrder saleOrder = saleOrderService.getById(saleOrderId);	
+		saleOrder.setUpdateDate(new Date());
 		model.addAttribute("saleOrder", saleOrder);
 		
 		return "backend/order-edit";

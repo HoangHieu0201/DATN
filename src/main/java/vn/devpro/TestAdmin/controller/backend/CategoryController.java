@@ -69,6 +69,7 @@ public class CategoryController extends BaseController{
 		
 		//Lay category trong db bang id
 		Category category = categoryService.getById(categoryId);
+		category.setUpdateDate(new Date());
 		
 		model.addAttribute("category", category);
 		

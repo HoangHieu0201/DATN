@@ -142,31 +142,58 @@ public class CartController extends BaseController implements FinalConstant{
 			return ResponseEntity.ok(jsonResult);	
 		}
 		
-		//Xoá sản phẩm ttrong giỏ hàng
-		@RequestMapping(value = "/daleteCartProduct", method = RequestMethod.POST)	
-		public ResponseEntity<Map<String, Object>> deleteCartProduct(final HttpServletRequest request,
-				@RequestBody ProductCart productCart) throws IOException{
-			
-			Map<String, Object> jsonResult = new HashMap<String, Object>();
+//		//Xoá sản phẩm ttrong giỏ hàng
+//		@RequestMapping(value = "/deleteCartProduct", method = RequestMethod.POST)	
+//		public String deleteCartProduct(final Model model,
+//								final HttpServletRequest request) throws IOException{
+//			
+//			//Lấy sp gợi ý		
+//			List<Product> searchProducts = productService.findAllActive();
+//	        model.addAttribute("searchProducts", searchProducts);
+//			
+//			HttpSession session = request.getSession();
+//			if(session.getAttribute("cart") != null) {
+//				Cart cart = (Cart) session.getAttribute("cart");
+//				model.addAttribute("totalCartPrice", cart.totalCartPrice());
+//				
+//				String message = "Có tổng cộng " + cart.totalCartProduct() + "sản phẩm trong giỏ hàng";
+//				model.addAttribute("message", message);
+//			}
+//			else {
+//				String errorMessage = "Không có sản phẩm nào trong giỏ hàng";
+//				model.addAttribute("errorMessage", errorMessage);
+//			}
+//			return "frontend/cart-view";
+//		}
+		
+		//Them mot san pham vao gio hang
+		@RequestMapping(value = "/deleteCartProduct", method = RequestMethod.POST)
+		public ResponseEntity<Map<String, Object>> deleteCartProduct(final Model model,
+				final HttpServletRequest request,
+				@RequestBody ProductCart deleteProduct) throws IOException{
 			
 			HttpSession session = request.getSession();
-			//Lay gio hang trong sesstion
-			// + Kiem tra gio hang da dc tao trong session chua?
-			if(session.getAttribute("cart") != null) { //da co gio hang
-				Cart cart = (Cart)session.getAttribute("cart"); //Lay gio hang
-				//Cap nhat so luong
-				int index = cart.findProductById(productCart.getProductId());
-				BigInteger oldQuantity = cart.getProductCarts().get(index).getQuantity();
-				BigInteger newQuantity = oldQuantity.add(productCart.getQuantity()); //+1/-1
-				if(newQuantity.intValue() < 1) {
-					newQuantity = BigInteger.ONE;
-				}
-				cart.getProductCarts().get(index).setQuantity(newQuantity);
-				jsonResult.put("newQuantity", newQuantity);
-			}
-			jsonResult.put("productId", productCart.getProductId());
-			return ResponseEntity.ok(jsonResult);	
+			Cart cart = (Cart)session.getAttribute("cart"); //Lay gio hang
+			
+			//Tìm vị trí sp trong giỏ hàng
+			int index = cart.findProductById(deleteProduct.getProductId());
+			//Xoá sp
+			cart.getProductCarts().remove(index);
+			
+			//Thiet lap lai gio hang trong session
+			session.setAttribute("cart", cart);
+			
+			//Tra ve du lieu cho view 
+			Map<String, Object> jsonResult = new HashMap<String, Object>();
+			jsonResult.put("code", 200);
+			jsonResult.put("totalCartProducts", cart.totalCartProduct());
+			//Lay san pham trong db
+			Product dbProduct= productService.getById(deleteProduct.getProductId());
+			jsonResult.put("message", "Đã xoá sản phẩm " + dbProduct.getName() + " khỏi giỏ hàng");
+			
+			return ResponseEntity.ok(jsonResult);
 		}
+		
 		
 		
 		// Đặt hàng
@@ -234,8 +261,8 @@ public class CartController extends BaseController implements FinalConstant{
 					
 					// Xoa gio hang sau khi da dat hàng
 //					cart = new Cart();
-//					session.setAttribute("cart", cart);
 					cart.getProductCarts().clear();
+					session.setAttribute("cart", cart);
 				}
 
 			}

@@ -25,7 +25,7 @@ public class UserService extends BaseService<User> implements FinalConstant{
 	public List<User> findAllActive() {
 		return super.executeNativeSql("SELECT * FROM tbl_user WHERE status = 1");
 	}
-	
+
 	@Transactional
 	public void deleteUserId(int id) {
 		super.deleteById(id);
@@ -95,4 +95,12 @@ public class UserService extends BaseService<User> implements FinalConstant{
 					"SELECT * FROM tbl_user where tbl_user.id in"
 					+ "(select tbl_user_role.user_id from tbl_user_role where tbl_user_role.role_id =1)");
 		}
+		
+		
+		public List<User> getAllUsers() {
+			return super.executeNativeSql(
+					"SELECT * FROM tbl_user where tbl_user.id in"
+					+ "(select tbl_user_role.user_id from tbl_user_role where tbl_user_role.role_id =2)");
+		}
+		
 }

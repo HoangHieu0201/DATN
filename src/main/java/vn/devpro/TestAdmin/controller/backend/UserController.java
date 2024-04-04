@@ -41,7 +41,7 @@ public class UserController extends BaseController{
 	public String list(final Model model) {
 		
 		//List<User> users = userService.findAll();
-		List<User> users = userService.findAllActive();
+		List<User> users = userService.getAllUsers();
 		model.addAttribute("users", users);
 		
 		return "backend/user-list";
@@ -53,7 +53,11 @@ public class UserController extends BaseController{
 		List<Role> roles = roleService.findAll();
 		model.addAttribute("roles", roles);
 		
+		List<User> users = userService.getAdmins();
+		model.addAttribute("users", users);
+		
 		User user = new User();
+		
 		user.setCreateDate(new Date());
 		model.addAttribute("user", user);
 		
@@ -69,6 +73,8 @@ public class UserController extends BaseController{
 			
 			user.setPassword(new BCryptPasswordEncoder(4).encode(user.getPassword()));
 			//Lay danhs ach product tu tbl_product trong db
+			
+			user.setUserCreateUser(getLoginedUser());
 			
 			userService.saveAddUser(user, avatarFile);
 			//Set role cho user moi, mac dinh role la GUEST
@@ -95,7 +101,7 @@ public class UserController extends BaseController{
 			
 			model.addAttribute("user", user);
 			
-			List<User> users = userService.findAllActive();
+			List<User> users = userService.getAdmins();
 			model.addAttribute("users", users);
 			
 			return "backend/user-edit";
@@ -108,6 +114,8 @@ public class UserController extends BaseController{
 				@RequestParam("avatarFile") MultipartFile avatarFile) throws IOException  {  
 			
 			user.setPassword(new BCryptPasswordEncoder(4).encode(user.getPassword()));
+			
+			user.setUserUpdateUser(getLoginedUser());
 			
 			userService.saveEditUser(user, avatarFile); //Luu du lieu
 			

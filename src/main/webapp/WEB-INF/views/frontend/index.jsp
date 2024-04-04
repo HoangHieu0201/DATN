@@ -95,10 +95,10 @@
 	                                    </p>
 	                                    <div class="buttons">
 	                                        <a class="btn-favorite"
-	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            onclick="addToCart(${product.id },1, '${product.name }')">
 	                                            <i class="fa-regular fa-heart"></i></a>
-	                                        <a class="btn-cart"
-	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                        <a class="btn-cart" role="button"
+	                                            onclick="addToCart(${product.id },1, '${product.name }')">
 	                                            <i class="fa-solid fa-cart-plus"></i></a>
 	                                    </div>
 	                                </div>
@@ -152,10 +152,10 @@
 	                                    </p>
 	                                    <div class="buttons">
 	                                        <a class="btn-favorite"
-	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                            onclick="addToCart(${product.id },1, '${product.name }')">
 	                                            <i class="fa-regular fa-heart"></i></a>
-	                                        <a class="btn-cart"
-	                                            /*onclick="addToCart(${product.id },1, '${product.name }')*/">
+	                                        <a class="btn-cart" role="button"
+	                                            onclick="addToCart(${product.id },1, '${product.name }')">
 	                                            <i class="fa-solid fa-cart-plus"></i></a>
 	                                    </div>
 	                                </div>

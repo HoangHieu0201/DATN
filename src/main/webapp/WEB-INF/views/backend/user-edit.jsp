@@ -134,7 +134,7 @@
                                                         <div class="form-group mb-4">
                                                             <label for="role">Create by</label>
                                                             <sf:select path="userCreateUser.id" class="form-control" id="userCreateUser">
-                                                                <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
+                                                                <sf:options items="${users }" itemValue="id" itemLabel="username" disable="true"></sf:options>
                                                             </sf:select>
                                                         </div>
                                                     </div>
@@ -147,7 +147,7 @@
                                                             </sf:select>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> 
                                                 
                                                 <div class="row">
                                                      <div class="col-md-6">

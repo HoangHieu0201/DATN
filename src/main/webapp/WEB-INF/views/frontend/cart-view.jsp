@@ -72,7 +72,7 @@
 																		<th scope="col" class="text-center">Quantity</th>
 																		<th scope="col" class="text-center">Price</th>
 																		<th scope="col" class="text-center">Total</th>
-																		<th scope="col" class="text-center">Actions</th>
+																		<th colspan="2" scope="col" class="text-center">Actions</th>
 																	</tr>
 																</thead>
 																<tbody>
@@ -103,7 +103,7 @@
 																				href="${classpath }/product-detail/${item.productId }"
 																				role="button" class="btn btn-secondary">Edit</a> 
 																			<td align="center"><a
-																				href="" onclick="daleteCartProduct(${item.productId })"
+																				href="" onclick="deleteCartProduct(${item.productId })"
 																				role="button" class="btn btn-danger">Delete</a> 	
 																		</tr>
 																	</c:forEach>
@@ -223,8 +223,7 @@
 										<c:when test="${checkout }">
 											<h3 align="center"
 												class="page-title text-truncate text-dark font-weight-medium mb-1">
-												<span id="placeOrderSuccess">Bạn đã đặt hàng thành
-													công</span>
+												<span id="placeOrderSuccess">Bạn đã đặt hàng thành công</span>
 											</h3>
 										</c:when>
 										<c:otherwise>
@@ -295,14 +294,14 @@
 	</script>
 	
 	<script type="text/javascript">
-		daleteCartProduct = function(_productId) {
+		deleteCartProduct = function(_productId) {
 			let data = {
 				productId : _productId
 			};
 
 			//$ === jQuery
 			jQuery.ajax({
-				url : "/daleteCartProduct/{productId}",
+				url : "/deleteCartProduct",
 				type : "POST",
 				contentType : "application/json",
 				data : JSON.stringify(data),

@@ -150,25 +150,25 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="row">
+                                               <%--  <div class="row">
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
                                                             <label for="role">Create by</label>
                                                             <sf:select path="userCreateUser.id" class="form-control" id="userCreateUser">
-                                                                <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
+                                                                <sf:options items="${loginedUser }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
                                                         </div>
                                                     </div>
-                                            
+                                            		
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
                                                             <label for="role">Update by</label>
                                                             <sf:select path="userUpdateUser.id" class="form-control" id="userUpdateUser">
-                                                                <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
+                                                                <sf:options items="" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </div> 
+                                                </div> --%>
                                                 
                                                 <div class="row">
                                                      <div class="col-md-6">
