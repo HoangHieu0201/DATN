@@ -40,7 +40,7 @@
 				<!-- basic table -->
 				<div class="row justify-content-center">
 					<div class="col-12">
-						<div class="card">
+						<div class="card" style="background-color: aliceblue;">
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-12">

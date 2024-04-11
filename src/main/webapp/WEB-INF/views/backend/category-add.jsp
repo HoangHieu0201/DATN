@@ -56,7 +56,7 @@
                     <div class="page-breadcrumb">
                         <div class="row">
                             <div class="col-7 align-self-center">
-                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Add Category</h2>
+                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Thêm hãng mới</h2>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                                     
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="name">Category name</label>
+                                                            <label for="name">Tên hãng</label>
                                                             <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="category name"></sf:input>
                                                         </div>
                                                     </div>
@@ -90,7 +90,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="category">Create by</label>
+                                                            <label for="category">Người tạo</label>
                                                             <sf:select path="userCreateCategory.id" class="form-control" id="userCreateCategory">
                                                                 <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -99,7 +99,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="category">Update by</label>
+                                                            <label for="category">Cập nhật</label>
                                                             <sf:select path="userUpdateCategory.id" class="form-control" id="userUpdateCategory">
                                                                 <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -109,7 +109,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="createDate">Create date</label>
+                                                            <label for="createDate">Ngày tạo</label>
                                                             
                                                             <sf:input path="createDate" class="form-control" type="date" 
                                                                         id="createDate" name="createDate"></sf:input>
@@ -118,7 +118,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="updateDate">Update date</label>
+                                                            <label for="updateDate">Ngày cập nhật</label>
                                                         
                                                             <sf:input path="updateDate" class="form-control" type="date" 
                                                                         id="updateDate" name="updateDate"></sf:input>
@@ -129,7 +129,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group mb-4">
-                                                            <label for="description">Description</label>
+                                                            <label for="description">Mô tả</label>
                                                             <sf:textarea path="description" id="description" name="description"
                                                                         class="form-control" rows="3" placeholder="desription..."></sf:textarea>
                                                         </div>
@@ -153,9 +153,9 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group mb-4">
                                                             <a href="${classpath }/admin/category/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-                                                                Back to list
+                                                                Quay lại
                                                             </a>
-                                                            <button type="submit" class="btn btn-primary">Save category</button>
+                                                            <button type="submit" class="btn btn-primary">Thêm</button>
                                                         </div>
                                                     </div>
                                                 </div>

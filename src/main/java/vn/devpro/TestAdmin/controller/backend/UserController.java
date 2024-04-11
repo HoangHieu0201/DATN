@@ -64,7 +64,7 @@ public class UserController extends BaseController{
 		return "backend/user-add";
 	}
 	
-	//Save new product
+	//Save new user
 		@RequestMapping(value = "add-save", method = RequestMethod.POST)
 		public String add(final Model model,
 				@ModelAttribute("user") User user,
@@ -72,7 +72,6 @@ public class UserController extends BaseController{
 				final HttpServletRequest request) throws IOException {
 			
 			user.setPassword(new BCryptPasswordEncoder(4).encode(user.getPassword()));
-			//Lay danhs ach product tu tbl_product trong db
 			
 			user.setUserCreateUser(getLoginedUser());
 			
@@ -113,7 +112,7 @@ public class UserController extends BaseController{
 				@ModelAttribute("user") User user,
 				@RequestParam("avatarFile") MultipartFile avatarFile) throws IOException  {  
 			
-			user.setPassword(new BCryptPasswordEncoder(4).encode(user.getPassword()));
+//			user.setPassword(new BCryptPasswordEncoder(4).encode(user.getPassword()));
 			
 			user.setUserUpdateUser(getLoginedUser());
 			

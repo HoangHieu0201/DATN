@@ -8,9 +8,9 @@
                 <!-- Company Information  -->
                 <div class="background company">
                     <div class="background title">Thông tin</div>
-                    <p class="background">Địa chỉ: Mai Dịch - Cầu Giấy -HN</p>
+                    <p class="background">Địa chỉ: Mai Dịch - Cầu Giấy - HN</p>
                     <p class="background">SĐT: 0233489943</p>
-                    <p class="background">Email: adasd@gmail.com</p>
+                    <p class="background">Email: mobileworld@gmail.com</p>
                     <p class="background"><a href="http//facebook.com">www.facebook.com/dientu</a></p>
                 </div>
                 <!-- Other options -->

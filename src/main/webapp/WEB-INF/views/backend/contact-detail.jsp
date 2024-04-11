@@ -59,8 +59,7 @@
 						<div class="row">
 							<div class="col-7 align-self-center">
 								<h2
-									class="page-title text-truncate text-dark font-weight-medium mb-1">Feedback
-									Detail</h2>
+									class="page-title text-truncate text-dark font-weight-medium mb-1">Chi tiết phản hồi</h2>
 							</div>
 						</div>
 					</div>
@@ -84,14 +83,14 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Name:</h4>
+														<h4>Khách hàng:</h4>
 														<p>${contact.name }</p>
 													</div>
 												</div>
 
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Mobile:</h4>
+														<h4>Điện thoại:</h4>
 														<p>${contact.mobile }</p>
 													</div>
 												</div>
@@ -105,7 +104,7 @@
 												</div>
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Address:</h4>
+														<h4>Địa chỉ:</h4>
 														<p>${contact.address }</p>
 													</div>
 												</div>
@@ -113,13 +112,13 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Create Date:</h4>
+														<h4>Ngày gửi:</h4>
 														<p>${contact.createDate }</p>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Update Date:</h4>
+														<h4>Ngày cập nhật:</h4>
 														<p>${contact.updateDate }</p>
 													</div>
 												</div>
@@ -128,7 +127,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group mb-4">
-														<h4>Message:</h4>
+														<h4>Lời nhắn:</h4>
 														<p>${contact.message }</p>
 													</div>
 												</div>
@@ -172,14 +171,6 @@
 						</div>
 						<!-- ============================================================== -->
 						<!-- End Container fluid  -->
-						<!-- ============================================================== -->
-						<!-- ============================================================== -->
-						<!-- footer -->
-						<!-- ============================================================== -->
-						<jsp:include page="/WEB-INF/views/backend/layout/footer.jsp"></jsp:include>
-						<!-- ============================================================== -->
-						<!-- End footer -->
-						<!-- ============================================================== -->
 					</div>
 					<!-- ============================================================== -->
 					<!-- End Page wrapper  -->

@@ -71,7 +71,7 @@ public class HomeAdminController extends BaseController {
 			model.addAttribute("totalSoldProducts", totalSoldProducts);
 
 		//	Tổng số user
-			List<User> users = userService.findAllActive();
+			List<User> users = userService.getAllUsers();
 			int totalUsers = users.size();
 			model.addAttribute("totalUsers", totalUsers);
 			

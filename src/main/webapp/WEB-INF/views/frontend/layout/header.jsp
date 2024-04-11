@@ -112,10 +112,11 @@
 							</div>
 
 							<div class="background icons-right">
-								<a class="btn-favorite" href="${classpath }/favorite"> <span class="quantity"
-										id="totalFavoriteProductsId">${totalCartProducts }</span>
+								<a class="btn-favorite" href="${classpath }/favorite-view"> <span class="quantity"
+										id="totalFavoriteProductsId">${totalFavoriteProducts }</span>
 									<i class="fa-regular fa-heart background"></i>
-								</a> <a class="btn-cart" href="${classpath }/cart-view"> <span class="quantity"
+								</a> 
+								<a class="btn-cart" href="${classpath }/cart-view"> <span class="quantity"
 										id="totalCartProductsId">${totalCartProducts }</span>
 									<i class="fa-solid fa-bag-shopping background"></i>
 									<c:choose>

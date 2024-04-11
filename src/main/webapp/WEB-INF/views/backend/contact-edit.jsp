@@ -59,8 +59,7 @@
                         <div class="row">
                             <div class="col-12 align-self-center">
                                 <h2
-                                    class="page-title text-truncate text-dark font-weight-medium mb-1">contact
-                                    Edit</h2>
+                                    class="page-title text-truncate text-dark font-weight-medium mb-1">Cập nhật phản hồi</h2>
                             </div>
                         </div>
                     </div>
@@ -84,14 +83,14 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerName">Customer Name</label>
+                                                            <label for="customerName">Tên khách hàng</label>
                                                             <sf:input path="name" type="text" class="form-control" id="customerName" name="customerName" placeholder=" name"></sf:input>
                                                         </div>
                                                     </div>
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerMobile">Customer Mobile</label>
+                                                            <label for="customerMobile">Điện thoại</label>
                                                             <sf:input path="mobile" type="text" class="form-control" id="customerMobile" name="customerMobile" placeholder="mobile"></sf:input>
                                                         </div>
                                                     </div>
@@ -107,7 +106,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerAddress">Customer Address</label>
+                                                            <label for="customerAddress">Địa chỉ</label>
                                                             <sf:input path="address" type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="address"></sf:input>
                                                         </div>
                                                     </div>
@@ -116,7 +115,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="createDate">Create date</label>
+                                                            <label for="createDate">Ngày gửi</label>
                                                             
                                                             <sf:input path="createDate" class="form-control" type="date" 
                                                                         id="createDate" name="createDate"></sf:input>
@@ -125,7 +124,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="updateDate">Update date</label>
+                                                            <label for="updateDate">Ngày cập nhật</label>
                                                         
                                                             <sf:input path="updateDate" class="form-control" type="date" 
                                                                         id="updateDate" name="updateDate"></sf:input>
@@ -136,7 +135,7 @@
                                                  <div class="row">
                                                     <div class="col-md-10">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerMessage">Customer Message</label>
+                                                            <label for="customerMessage">Lời nhắn</label>
                                                             <sf:input path="message" type="text" class="form-control" id="customerMessage" 
                                                             			name="customerMessage" placeholder=" message" readonly="true"></sf:input>
                                                         </div>
@@ -176,9 +175,9 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group mb-4">
                                                             <a href="${classpath }/admin/contact/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-                                                                Back to list
+                                                                Quay lại
                                                             </a>
-                                                            <button type="submit" class="btn btn-primary">Save edit contact</button>
+                                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,25 +207,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Js -->
 	<jsp:include page="/WEB-INF/views/backend/layout/js.jsp"></jsp:include>

@@ -56,7 +56,7 @@
 		            <div class="page-breadcrumb">
 		                <div class="row">
 		                    <div class="col-7 align-self-center">
-		                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">List Category</h2>
+		                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách các hãng</h2>
 		                    </div>
 		                </div>
 		            </div>
@@ -80,7 +80,7 @@
 		                               	<div class="row">
 		                       		 		<div class="col-md-12">
 												<div class="form-group mb-4">
-			                                        <a href="${classpath }/admin/category/add" role="button" class="btn btn-primary">Add New Category</a>
+			                                        <a href="${classpath }/admin/category/add" role="button" class="btn btn-primary">Thêm mới</a>
 		                                      	</div>
 		                                   	</div>
 											
@@ -106,14 +106,14 @@
 		                                            <tr>
 		                                            	<th scope="col">No.</th>
 		                                                <th scope="col">Id</th>
-		                                                <th scope="col">Name</th>    
-		                                                <th scope="col">Create by</th>
-		                                                <th scope="col">Update by</th>
-		                                                <th scope="col">Create date</th>
-		                                                <th scope="col">Update date</th>
-		                                                <th scope="col">Status</th>  
-		                                                <th scope="col">Description</th>
-		                                                <th scope="col">Actions</th>                                              
+		                                                <th scope="col">Tên</th>    
+		                                                <th scope="col">Người tạo</th>
+		                                                <th scope="col">Người cập nhật</th>
+		                                                <th scope="col">Ngày tạo</th>
+		                                                <th scope="col">Ngày cập nhật</th>
+		                                                <th scope="col">Trạng thái</th>  
+		                                                <th scope="col">Mô tả</th>
+		                                                <th scope="col">Hành động</th>                                              
 		                                            </tr>
 		                                        </thead>
 		                                        <tbody>
@@ -154,14 +154,14 @@
 		                                            <tr>
 		                                            	<th scope="col">No.</th>
 		                                                <th scope="col">Id</th>
-		                                                <th scope="col">Name</th>
-		                                                <th scope="col">Create by</th>
-		                                                <th scope="col">Update by</th>
-		                                                <th scope="col">Create date</th>
-		                                                <th scope="col">Update date</th>
-		                                                <th scope="col">Status</th>
-		                                                <th scope="col">Description</th>
-		                                                <th scope="col">Actions</th>
+		                                                <th scope="col">Tên</th>    
+		                                                <th scope="col">Người tạo</th>
+		                                                <th scope="col">Người cập nhật</th>
+		                                                <th scope="col">Ngày tạo</th>
+		                                                <th scope="col">Ngày cập nhật</th>
+		                                                <th scope="col">Trạng thái</th>  
+		                                                <th scope="col">Mô tả</th>
+		                                                <th scope="col">Hành động</th>      
 		                                            </tr>
 		                                        </tfoot>
 		                                    </table>

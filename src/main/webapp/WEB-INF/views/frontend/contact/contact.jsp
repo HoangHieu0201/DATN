@@ -19,7 +19,7 @@
 
 	<main class="main" style="padding: 1% 0% 0 0%;">
 		<div class="main__contact">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12 col-lg-6">
 						<div class="contact__title">
@@ -34,7 +34,7 @@
 									<div class="col-md-6">
 										<div class="contact__form-input">
 											<input type="text" class="form-input"
-												placeholder="Your name..." id="txtName" name="txtName"
+												placeholder="Họ tên..." id="txtName" name="txtName"
 												value="${loginedUser.name }">
 										</div>
 									</div>
@@ -47,14 +47,14 @@
 									<div class="col-md-6">
 										<div class="contact__form-input">
 											<input type="text" class="form-input"
-												placeholder="Your mobile..." id="txtMobile" name="txtMobile"
+												placeholder="Số điện thoại..." id="txtMobile" name="txtMobile"
 												value="${loginedUser.mobile }">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="contact__form-input">
 											<input type="text" class="form-input"
-												placeholder="Your address..." id="txtAddress"
+												placeholder="Địa chỉ..." id="txtAddress"
 												name="txtAddress" value="${loginedUser.address }">
 										</div>
 									</div>
@@ -62,13 +62,13 @@
 										<div class="contact__form-input">
 											<textarea cols="30" rows="5" class="form__textarea"
 												id="txtMessage" name="txtMessage"
-												placeholder="Leave your feedback..."></textarea>
+												placeholder="Để lại lời nhắn..."></textarea>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="contact__btn">
 											<!-- <a href="#">Send</a> -->
-											<button class="btn btn-primary">Send</button>
+											<button class="btn btn-primary">Gửi</button>
 										</div>
 									</div>
 								</div>
@@ -79,17 +79,17 @@
 						<div class="contact__title">
 							<h2 class="title">Liên hệ với chúng tôi</h2>
 						</div>
-						<p class="contact__description">Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Voluptate facere aliquid quibusdam
-							provident laudantium veniam iste magni doloribus ipsam porro
-							similique, quisquam temporibus, quod ipsa obcaecati tempora.
-							Doloribus, corporis impedit! Lorem, ipsum dolor sit amet
-							consectetur adipisicing elit. Id ducimus sed voluptates sequi
-							adipisci aspernatur, veniam libero dolor harum eaque consectetur
-							officia iusto aut officiis quas est animi nam autem.</p>
+						<p class="contact__description">Chúng tôi cam kết cung cấp
+							dịch vụ tốt nhất và luôn sẵn lòng giải đáp mọi thắc mắc của bạn.
+							Bất kể bạn đang cần hỗ trợ về sản phẩm, dịch vụ hoặc có bất kỳ
+							câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi. Đội ngũ nhân
+							viên của chúng tôi luôn ở đây để hỗ trợ bạn. Vui lòng điền vào
+							biểu mẫu dưới đây hoặc liên hệ trực tiếp với chúng tôi qua số
+							điện thoại hoặc email để được hỗ trợ nhanh chóng và chuyên
+							nghiệp. Cảm ơn bạn đã lựa chọn chúng tôi!</p>
 						<ul class="contact__address">
-							<li><i class='bx bx-phone'></i> 012345678</li>
-							<li><i class='bx bx-envelope'></i> mail@gmail.com</li>
+							<li><i class='bx bx-phone'></i> 0233489943</li>
+							<li><i class='bx bx-envelope'></i> mobileworld@gmail.com</li>
 						</ul>
 					</div>
 				</div>

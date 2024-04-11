@@ -64,35 +64,44 @@ public class User extends BaseModel implements UserDetails{
 	}
 	
 	
+//	-----------Mapping one-to-many: user-to-sale_order (user in saleOder)--------------------------
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	private Set<SaleOrder> saleOrders = new HashSet<SaleOrder>();	
+	
+	//Method add and remove elements in relational product list
+	public void addRelationalUserInSaleOrder(SaleOrder saleOrder) {
+		saleOrders.add(saleOrder);
+		saleOrder.setUserCreateSaleOrder(this);
+	}	
 	
 	
 //	-----------Mapping one-to-many: user-to-sale_order (user create saleOder)--------------------------
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-	private Set<SaleOrder> userCreateSaleOrder = new HashSet<SaleOrder>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userCreateSaleOrder")
+	private Set<SaleOrder> userCreateSaleOrders = new HashSet<SaleOrder>();
 	
 	//Method add and remove elements in relational product list
 	public void addRelationalUserCreateSaleOrder(SaleOrder saleOrder) {
-		userCreateSaleOrder.add(saleOrder);
+		userCreateSaleOrders.add(saleOrder);
 		saleOrder.setUserCreateSaleOrder(this);
 	}
 	
 	public void removeRelationalUserCreateSaleOrder(SaleOrder saleOrder) {
-		userCreateSaleOrder.remove(saleOrder);
+		userCreateSaleOrders.remove(saleOrder);
 		saleOrder.setUserCreateSaleOrder(null);
 	}
 	
 //	-----------Mapping one-to-many: user-to-sale_order (user update saleOder)--------------------------
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-	private Set<SaleOrder> userUpdateSaleOrder = new HashSet<SaleOrder>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userUpdateSaleOrder")
+	private Set<SaleOrder> userUpdateSaleOrders = new HashSet<SaleOrder>();
 	
 	//Method add and remove elements in relational product list
 	public void addRelationalUserUpdateSaleOrder(SaleOrder saleOrder) {
-		userUpdateSaleOrder.add(saleOrder);
+		userUpdateSaleOrders.add(saleOrder);
 		saleOrder.setUserUpdateSaleOrder(this);
 	}
 	
 	public void removeRelationalUserUpdateSaleOrder(SaleOrder saleOrder) {
-		userCreateSaleOrder.remove(saleOrder);
+		userCreateSaleOrders.remove(saleOrder);
 		saleOrder.setUserUpdateSaleOrder(null);
 	}	
 

@@ -36,7 +36,12 @@
         <div class="container-fluid padding-top">
             <div class="slider_bar">
                 <div class="slider">
-                    <img src="${classpath}/frontend/images/slider/slider_4.png" alt="">
+                    <img src="${classpath}/frontend/images/slider/slider_1.png" alt="" class="slide">
+                    <img src="${classpath}/frontend/images/slider/slider_2.jpg" alt="" class="slide">
+                    <img src="${classpath}/frontend/images/slider/slider_3.jpg" alt="" class="slide">
+                    <img src="${classpath}/frontend/images/slider/slider_4.png" alt="" class="slide">
+                    <button id="prevBtn" class="arrow-btn prev-btn">&#10094;</button>
+                    <button id="nextBtn" class="arrow-btn next-btn">&#10095;</button>
                 </div>
                 <div class="image_demo">
                     <a href="">
@@ -65,11 +70,8 @@
                         HOT PRODUCT
                         <i class="fa-solid fa-fire"></i>
                     </h3>
-                    <div class="timer" id="timer">
-                        <strong> </strong><strong> </strong><span> :
-                        </span><strong> </strong><strong> </strong><span> :
-                        </span><strong>  </strong><strong> 
-                        </strong>
+                    <div class="timer" data-hours="1" data-minutes="30" data-seconds="0">
+                        <strong class="hours">23</strong><span>:</span><strong class="minutes">30</strong><span>:</span><strong class="seconds">00</strong>
                     </div>
                 </div>
                 <!-- Cac san pham hot-->
@@ -95,7 +97,7 @@
 	                                    </p>
 	                                    <div class="buttons">
 	                                        <a class="btn-favorite"
-	                                            onclick="addToCart(${product.id },1, '${product.name }')">
+	                                            onclick="addToFavorite(${product.id },1, '${product.name }')">
 	                                            <i class="fa-regular fa-heart"></i></a>
 	                                        <a class="btn-cart" role="button"
 	                                            onclick="addToCart(${product.id },1, '${product.name }')">
@@ -122,11 +124,8 @@
                         <i class="fa-solid fa-bolt-lightning"></i>
                         ASH SALE ONLINE
                     </h3>
-                    <div class="timer" id="timer">
-                        <strong> 2 </strong><strong> 4 </strong><span> :
-                        </span><strong> 0 </strong><strong> 5 </strong><span> :
-                        </span><strong> 4 </strong><strong> 6
-                        </strong>
+                    <div class="timer" data-hours="1" data-minutes="30" data-seconds="0">
+                        <strong class="hours">23</strong><span>:</span><strong class="minutes">30</strong><span>:</span><strong class="seconds">00</strong>
                     </div>
                 </div>
                 <!-- Cac san pham flash sale-->
@@ -152,7 +151,7 @@
 	                                    </p>
 	                                    <div class="buttons">
 	                                        <a class="btn-favorite"
-	                                            onclick="addToCart(${product.id },1, '${product.name }')">
+	                                            onclick="addToFavorite(${product.id },1, '${product.name }')">
 	                                            <i class="fa-regular fa-heart"></i></a>
 	                                        <a class="btn-cart" role="button"
 	                                            onclick="addToCart(${product.id },1, '${product.name }')">
@@ -211,33 +210,34 @@
         </div>
     </main>
 
+	 <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
    
  	<!-- Footer -->
     <jsp:include page="/WEB-INF/views/frontend/layout/footer.jsp"></jsp:include>
     
     <jsp:include page="/WEB-INF/views/frontend/layout/js.jsp"></jsp:include>
 
-    <script type="text/javascript">
-        // Lấy tất cả các phần tử có class là "timer"
-        var timerElements = document.getElementsByClassName("timer");
+   <script>
+    // Hàm để cập nhật hiển thị của timer
+    function updateTimer(timerElement, hours, minutes, seconds) {
+        // Cập nhật nội dung của phần tử timer
+        timerElement.innerHTML = `<strong>${hours < 10 ? '0' + hours : hours}</strong><span>:</span><strong>${minutes < 10 ? '0' + minutes : minutes}</strong><span>:</span><strong>${seconds < 10 ? '0' + seconds : seconds}</strong>`;
+    }
 
-        // Hàm để cập nhật hiển thị của timer
-        function updateTimer(timerElement, hours, minutes, seconds) {
-            // Cập nhật nội dung của phần tử timer
-            timerElement.innerHTML = `<strong>${hours}</strong><span>:</span><strong>${minutes}</strong><span>:</span><strong>${seconds}</strong>`;
-        }
+    // Hàm đếm ngược
+    function countdown() {
+        // Lặp qua từng phần tử timer và thực hiện đếm ngược
+        Array.from(timerElements).forEach(function (timerElement) {
+            // Lấy giá trị của giờ, phút và giây từ thuộc tính dữ liệu của phần tử HTML
+            var hours = parseInt(timerElement.getAttribute("data-hours"));
+            var minutes = parseInt(timerElement.getAttribute("data-minutes"));
+            var seconds = parseInt(timerElement.getAttribute("data-seconds"));
 
-        // Hàm đếm ngược
-        function countdown() {
-            var hours = 24; // Số giờ
-            var minutes = 59; // Số phút
-            var seconds = 59; // Số giây
-
-            // Lặp qua tất cả các phần tử timer và cập nhật hiển thị cho mỗi phần tử
-            Array.from(timerElements).forEach(function (timerElement) {
-                // Cập nhật hiển thị ban đầu cho mỗi phần tử timer
-                updateTimer(timerElement, hours, minutes, seconds);
-            });
+            // Cập nhật hiển thị ban đầu cho mỗi phần tử timer
+            updateTimer(timerElement, hours, minutes, seconds);
 
             // Đếm ngược
             var countdownInterval = setInterval(function () {
@@ -258,11 +258,8 @@
                     minutes = 59;
                 }
 
-                // Lặp qua tất cả các phần tử timer và cập nhật hiển thị cho mỗi phần tử
-                Array.from(timerElements).forEach(function (timerElement) {
-                    // Cập nhật hiển thị timer cho mỗi phần tử
-                    updateTimer(timerElement, hours, minutes, seconds);
-                });
+                // Cập nhật hiển thị cho phần tử timer
+                updateTimer(timerElement, hours, minutes, seconds);
 
                 // Nếu số giờ dưới 0
                 if (hours < 0) {
@@ -272,13 +269,14 @@
                     console.log("Hết thời gian!");
                 }
             }, 1000); // Thực hiện cập nhật mỗi giây (1000 milliseconds)
-        }
+        });
+    }
 
-        // Gọi hàm đếm ngược khi trang được tải
-        countdown();
+    // Gọi hàm đếm ngược khi trang được tải
+    countdown();
+</script>
 
-    </script>
-    
+  
     <!-- Add to cart -->
     <script type="text/javascript">
         addToCart = function (_productId, _quantity, _productName) {
@@ -308,6 +306,70 @@
                 },
             });
         }
+    </script>
+    
+    <!-- Add to favorite -->
+    <script type="text/javascript">
+    	addToFavorite = function (_productId, _quantity, _productName) {
+            //alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+            let data = {
+                productId: _productId, //lay theo id
+                quantity: _quantity,
+                productName: _productName,
+            };
+
+            //$ === jQuery
+            jQuery.ajax({
+                url: "/add-to-favorite",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                dataType: "json", //Kieu du lieu tra ve tu controller la json
+
+                success: function (jsonResult) {
+                    alert(jsonResult.code + ": " + jsonResult.message);
+                    let totalFavoriteProducts = jsonResult.totalFavoriteProducts;
+                    $("#totalFavoriteProductsId").html(totalFavoriteProducts);
+                },
+
+                error: function (jqXhr, textStatus, errorMessage) {
+                    alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+                },
+            });
+        }
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll(".slide");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove("active_slider"));
+                slides[n].classList.add("active_slider");
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            nextBtn.addEventListener("click", nextSlide);
+            prevBtn.addEventListener("click", prevSlide);
+
+            setInterval(nextSlide, 3000); // Chuyển đổi slide tự động sau mỗi 3 giây
+
+            // Hiển thị slide đầu tiên khi trang được tải
+            showSlide(0);
+        });
+
     </script>
 </body>
 

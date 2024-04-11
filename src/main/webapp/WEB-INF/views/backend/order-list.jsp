@@ -58,8 +58,7 @@
                         <div class="row">
                             <div class="col-12 align-self-center">
                                 <h2
-                                    class="page-title text-truncate text-dark font-weight-medium mb-1">Order
-                                    Tracking</h2>
+                                    class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách đơn hàng</h2>
                             </div>
                         </div>
                     </div>
@@ -111,7 +110,7 @@
                                                         </div>
                                                         
                                                         <div class="col-md-1 pl-0">
-                                                            <button type="submit" id="btnSearch" name="btnSearch" class="btn btn-primary">Find</button>
+                                                            <button type="submit" id="btnSearch" name="btnSearch" class="btn btn-primary">Tìm</button>
                                                         </div>
                                                         <div class="col-md-1">
                                                             <input id="currentPage" name="currentPage" type="hidden"
@@ -126,16 +125,16 @@
                                                             <tr align="center">
                                                                 <th scope="col">No.</th>
                                                                 <th scope="col">Code</th>
-                                                                <th scope="col">Customer</th>
-                                                                <th scope="col">Mobile</th>
-                                                                <th scope="col">Address</th>
-                                                                <th scope="col">Payment</th>
-                                                                <th scope="col">Create by</th>
+                                                                <th scope="col">Khách hàng</th>
+                                                                <th scope="col">Điện thoại</th>
+                                                                <th scope="col">Địa chỉ</th>
+                                                                <th scope="col">Thanh toán</th>
+                                                                <th scope="col">Người tạo</th>
                                                                 <!-- <th scope="col">Update by</th> -->
-                                                                <th scope="col">Create date</th>
-                                                                <th scope="col">Delivery date</th>
-                                                                <th scope="col">Status</th>
-                                                                <th scope="col">Actions</th>
+                                                                <th scope="col">Ngày tạo</th>
+                                                                <th scope="col">Ngày giao hàng</th>
+                                                                <th scope="col">Trạng thái</th>
+                                                                <th scope="col">Hành động</th>
             
                                                             </tr>
                                                         </thead>
@@ -183,7 +182,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-4">
                                                                 <h3>
-                                                                    Total sales:
+                                                                    Tổng đoanh thu:
                                                                     <fmt:formatNumber value="${totalSales }"
                                                                         minFractionDigits="0"></fmt:formatNumber>(vnđ)
                                                                 </h3>

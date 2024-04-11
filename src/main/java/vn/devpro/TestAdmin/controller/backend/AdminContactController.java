@@ -1,6 +1,7 @@
 package vn.devpro.TestAdmin.controller.backend;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -119,8 +120,10 @@ public class AdminContactController extends BaseController implements FinalConst
 			@PathVariable("contactId") int contactId) {
 		
 		//Lay contact trong db bang id
-		Contact contact = contactService.getById(contactId);	
+		Contact contact = contactService.getById(contactId);
+		contact.setUpdateDate(new Date());
 		model.addAttribute("contact", contact);
+		
 		
 		return "backend/contact-edit";
 	}

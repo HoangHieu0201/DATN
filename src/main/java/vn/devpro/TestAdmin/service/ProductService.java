@@ -42,6 +42,11 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 		super.saveOrUpdate(product);
 	}
 	
+	//Cac san pham yeu thich cua user
+	public List<Product> findAllFavoriteProductByUserId(int userId) {
+		return super.executeNativeSql("with dsd as (select d.product_id from tbl_favorite d where user_id= " + userId + ") select * from tbl_product p join dsd on dsd.product_id = p.id");
+	}
+	
 	
 	//Ham kiem tra  (1) file co duoc upload ko?
 	public boolean isUploadFile(MultipartFile file) {

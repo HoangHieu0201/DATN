@@ -59,8 +59,7 @@
                         <div class="row">
                             <div class="col-12 align-self-center">
                                 <h2
-                                    class="page-title text-truncate text-dark font-weight-medium mb-1">Order
-                                    Edit</h2>
+                                    class="page-title text-truncate text-dark font-weight-medium mb-1">Chỉnh sửa đơn hàng</h2>
                             </div>
                         </div>
                     </div>
@@ -90,10 +89,10 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="row">
+                                                <div class="row" hidden>
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="code">Total</label>
+                                                            <label for="total">Tổng tiền</label>
                                                             <sf:input path="total" type="text" class="form-control" id="total" name="total" placeholder="total" readonly="true"></sf:input>
                                                         </div>
                                                     </div>
@@ -102,14 +101,14 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerName">Customer Name</label>
+                                                            <label for="customerName">Tên khách hàng</label>
                                                             <sf:input path="customerName" type="text" class="form-control" id="customerName" name="customerName" placeholder=" name"></sf:input>
                                                         </div>
                                                     </div>
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerMobile">Customer Mobile</label>
+                                                            <label for="customerMobile">Điện thoại</label>
                                                             <sf:input path="customerMobile" type="text" class="form-control" id="customerMobile" name="customerMobile" placeholder="mobile"></sf:input>
                                                         </div>
                                                     </div>
@@ -118,14 +117,14 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerEmail">Customer Email</label>
+                                                            <label for="customerEmail">Email</label>
                                                             <sf:input path="customerEmail" type="text" class="form-control" id="customerEmail" name="customerEmail" placeholder=" email"></sf:input>
                                                         </div>
                                                     </div>
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="customerAddress">Customer Address</label>
+                                                            <label for="customerAddress">Địa chỉ</label>
                                                             <sf:input path="customerAddress" type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="address"></sf:input>
                                                         </div>
                                                     </div>
@@ -134,7 +133,7 @@
                                                 <div class="row" hidden>
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="saleOrder">Create by</label>
+                                                            <label for="saleOrder">Người tạo</label>
                                                             <sf:select path="userCreateSaleOrder.id" class="form-control" id="userCreateSaleOrder">
                                                                 <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -143,7 +142,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="saleOrder">Update by</label>
+                                                            <label for="saleOrder">Người cập nhật</label>
                                                             <sf:select path="userUpdateSaleOrder.id" class="form-control" id="userUpdateSaleOrder">
                                                                 <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -154,7 +153,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="createDate">Create date</label>
+                                                            <label for="createDate">Ngày tạo</label>
                                                             
                                                             <sf:input path="createDate" class="form-control" type="date" 
                                                                         id="createDate" name="createDate"></sf:input>
@@ -163,7 +162,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="updateDate">Update date</label>
+                                                            <label for="updateDate">Ngày cập nhật</label>
                                                         
                                                             <sf:input path="updateDate" class="form-control" type="date" 
                                                                         id="updateDate" name="updateDate"></sf:input>

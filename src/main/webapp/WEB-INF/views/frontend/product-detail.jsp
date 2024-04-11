@@ -34,9 +34,9 @@
     <main style="padding: 1% 5% 0 5%;">
         <div class="container-fluid">
             <p class="mb-2 mt-1 pb-3">
-                <a href="Index.html">Trang chủ</a> 
-                > <a href="Product.html">Cửa hàng</a> 
-                > <a href="product_info.html">Sản phẩm</a>
+                <a href="${classpath }/index">Trang chủ</a> 
+                > <a href="${classpath }/product">Cửa hàng</a> 
+                > <a href="">Sản phẩm</a>
             </p>
             <div class="row">
                 <!-- ảnh sp -->
@@ -102,7 +102,7 @@
 
                     <!-- Nút mua -->
                     <div class="row pl-3 mt-2 mb-3">
-                        <button type="button" class="btn btn-primary"><i class="fa-regular fa-heart"></i></button>
+                        <button type="button" onclick="addToFavorite(${product.id },1, '${product.name }')" class="btn btn-primary"><i class="fa-regular fa-heart"></i></button>
                         <button type="button" onclick="addToCart(${product.id }, '${product.name }')" class="btn btn-warning ml-4">Thêm vào giỏ hàng</button>
                     </div>
 
@@ -179,6 +179,37 @@
             bigImg.src = imgItem.src
         })
     })
+    </script>
+    
+    <!-- Add to favorite -->
+    <script type="text/javascript">
+    	addToFavorite = function (_productId, _quantity, _productName) {
+            //alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+            let data = {
+                productId: _productId, //lay theo id
+                quantity: _quantity,
+                productName: _productName,
+            };
+
+            //$ === jQuery
+            jQuery.ajax({
+                url: "/add-to-favorite",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                dataType: "json", //Kieu du lieu tra ve tu controller la json
+
+                success: function (jsonResult) {
+                    alert(jsonResult.code + ": " + jsonResult.message);
+                    let totalFavoriteProducts = jsonResult.totalFavoriteProducts;
+                    $("#totalFavoriteProductsId").html(totalFavoriteProducts);
+                },
+
+                error: function (jqXhr, textStatus, errorMessage) {
+                    alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+                },
+            });
+        }
     </script>
 </body>
 </html>

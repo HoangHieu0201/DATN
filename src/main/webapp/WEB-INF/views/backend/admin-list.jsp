@@ -57,7 +57,7 @@
                     <div class="page-breadcrumb">
                         <div class="row">
                             <div class="col-7 align-self-center">
-                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách người dùng</h2>
+                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách đồng quản trị</h2>
                             </div>
                         </div>
                     </div>
@@ -77,31 +77,6 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            
-                                           <div class="row">
-                                                <div class="col-md-6">
-                                                <div class="form-group mb-4">
-                                                    <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Thêm người dùng mới</a>
-                                                  </div>
-                                               </div>
-                                            
-                                            <div class="col-md-6">
-                                                <ul class="pagination float-right">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                    </li>
-                                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        
                                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                                 <thead>
                                                     <tr>
@@ -115,12 +90,9 @@
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Địa chỉ</th>
                                                         <th scope="col">Người tạo</th>
-                                                        <th scope="col">Người cập nhật</th>
                                                         <th scope="col">Ngày tạo</th>
-                                                        <th scope="col">Ngày cập nhật</th>
                                                         <th scope="col">Trạng thái</th> 
-                                                        <th scope="col">Mô tả</th>    
-                                                        <th scope="col">Hành động</th>                                           
+                                                        <th scope="col">Mô tả</th>                                             
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -139,12 +111,8 @@
                                                             <td>${user.email }</td>
                                                             <td>${user.address }</td>
                                                             <td>${user.userCreateUser.username }</td>
-                                                            <td>${user.userUpdateUser.username }</td>
                                                             <td>
                                                                 <fmt:formatDate value="${user.createDate }" pattern="dd-MM-yyyy"/>
-                                                            </td>
-                                                            <td>
-                                                                <fmt:formatDate value="${user.updateDate }" pattern="dd-MM-yyyy"/>
                                                             </td>
                                                             <td>
                                                                 <span id="_user_status_${user.id }">
@@ -159,40 +127,10 @@
                                                                 </span>
                                                             </td>
                                                             <td>${user.description }</td>
-                                                            <td>
-                                                                <a href="${classpath }/admin/user/edit/${user.id }" role="button" 
-                                                                                        class="btn btn-primary">Edit</a>
-                                                                <a href="${classpath }/admin/user/delete/${user.id }" role="button" 
-                                                                                        class="btn btn-secondary">Delete</a>
-                                                            </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                            
-                                            <div class="row">
-                                                     <div class="col-md-6">
-                                                        <div class="form-group mb-4">
-                                                            <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Thêm người dùng mới</a>
-                                                        </div>
-                                                    </div>
-                                                
-                                                <div class="col-md-6">
-                                                    <ul class="pagination float-right">
-                                                        <li class="page-item disabled">
-                                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                        </li>
-                                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link" href="#">Next</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                              </div>
                                         </div>
                                     </div>
                                 </div>

@@ -33,13 +33,26 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 		// Kiểm tra và thiết lập giá trị cho trường user trước khi lưu
 		if (saleOrder.getUser() == null && saleOrder.getUserCreateSaleOrder() != null) {
 			// Lấy thông tin người dùng từ UserService (hoặc từ nguồn dữ liệu phù hợp)
-			User user = userService.getById(saleOrder.getUserCreateSaleOrder().getId());
+			User user = saleOrder.getUserCreateSaleOrder();
 			// Thiết lập giá trị user cho saleOrder
 			saleOrder.setUser(user);
 		}
 		return super.saveOrUpdate(saleOrder);
 	}
+	
+//	@Transactional
+//	public SaleOrder saveOrder(SaleOrder saleOrder) {
+//		// Kiểm tra và thiết lập giá trị cho trường user trước khi lưu
+//		if (saleOrder.getUser() == null && saleOrder.getUserCreateSaleOrder() != null) {
+//			// Lấy thông tin người dùng từ UserService (hoặc từ nguồn dữ liệu phù hợp)
+//			User user = userService.getById(saleOrder.getUserCreateSaleOrder().getId());
+//			// Thiết lập giá trị user cho saleOrder
+//			saleOrder.setUser(user);
+//		}
+//		return super.saveOrUpdate(saleOrder);
+//	}
 
+	
 	public List<SaleOrder> findAllActive() {
 		return super.executeNativeSql("SELECT * FROM tbl_sale_order WHERE status = 1");
 	}

@@ -9,15 +9,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>${title }</title>
-	<link rel="stylesheet" type="text/css" media="screen" href="${classpath}/frontend/bootstrap/bootstrap.min.css">
-	<jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
-	
-	<!-- variables -->
-	<jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
-	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title }</title>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${classpath}/frontend/bootstrap/bootstrap.min.css">
+<jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
+
+<!-- variables -->
+<jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
+
 
 </head>
 
@@ -25,9 +26,9 @@
 
 <body>
 	<!-- header -->
-		<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
 	<div class="wrapper">
-		
+
 
 		<!-- content -->
 		<main class="main" style="padding: 1% 0% 0 0%;">
@@ -67,11 +68,11 @@
 																<thead>
 																	<tr>
 																		<th scope="col" class="text-center">No.</th>
-																		<th scope="col" class="text-center">Image</th>
-																		<th scope="col" class="text-center">Product</th>
-																		<th scope="col" class="text-center">Quantity</th>
-																		<th scope="col" class="text-center">Price</th>
-																		<th scope="col" class="text-center">Total</th>
+																		<th scope="col" class="text-center">Hình ảnh</th>
+																		<th scope="col" class="text-center">Sản phẩm</th>
+																		<th scope="col" class="text-center">Số lượng</th>
+																		<th scope="col" class="text-center">Giá bán</th>
+																		<th scope="col" class="text-center">Tổng</th>
 																		<th colspan="2" scope="col" class="text-center">Actions</th>
 																	</tr>
 																</thead>
@@ -87,8 +88,7 @@
 																			<td align="center">
 																				<button
 																					onclick="updateProductQuantity(${item.productId }, -1)"
-																					value="-">-</button> 
-																					<strong><span
+																					value="-">-</button> <strong><span
 																					id="productQuantity_${item.productId }">${item.quantity }</span></strong>
 																				<button
 																					onclick="updateProductQuantity(${item.productId }, 1)"
@@ -101,10 +101,12 @@
 																					minFractionDigits="0" /></td>
 																			<td align="center"><a
 																				href="${classpath }/product-detail/${item.productId }"
-																				role="button" class="btn btn-secondary">Edit</a> 
-																			<td align="center"><a
-																				href="" onclick="deleteCartProduct(${item.productId })"
-																				role="button" class="btn btn-danger">Delete</a> 	
+																				role="button" class="btn btn-secondary">Edit</a>
+																			<td align="center"><a href=""
+																				onclick="deleteCartProduct(${item.productId })"
+																				role="button" class="btn btn-danger"> <i
+																					class="fa-solid fa-trash-can"></i>
+																			</a>
 																		</tr>
 																	</c:forEach>
 																</tbody>
@@ -118,7 +120,7 @@
 														<div class="col-4">
 															<h3
 																class="page-title text-truncate text-dark font-weight-medium mb-1">
-																Cart Total:
+																Tổng tiền:
 																<fmt:formatNumber value="${totalCartPrice }"
 																	minFractionDigits="0"></fmt:formatNumber>
 																<sup>đ</sup>
@@ -134,87 +136,103 @@
 								</div>
 							</form>
 							<!-- Thong tin khach hang -->
-							<div class="page-breadcrumb">
-								<div class="row"></div>
-								<div class="row">
-									<div class="main__products-title">
-										<p>Thông tin khách hàng</p>
-									</div>
-								</div>
-								<form action="${classpath }/cart-view" method="get">
-									<div class="row">
+							<c:choose>
+								<c:when test="${isLogined }">
+									<div class="page-breadcrumb">
+										<div class="row"></div>
+										<div class="row">
+											<div class="main__products-title">
+												<p>Thông tin khách hàng</p>
+											</div>
+										</div>
+										<form action="${classpath }/cart-view" method="get">
+											<div class="row">
 
-										<div class="col-12">
-											<div class="card">
-												<div class="card-body">
-													<div class="form-body">
-														<div class="row">
+												<div class="col-12">
+													<div class="card">
+														<div class="card-body">
+															<div class="form-body">
+																<div class="row">
 
-															<div class="col-md-12">
-																<div class="form-group mb-4">
-																	<label for="name">Customer name (*)</label> <input
-																		type="text" class="form-control" id="txtName"
-																		name="txtName" placeholder="your name"
-																		value="${loginedUser.name }" />
+																	<div class="col-md-12">
+																		<div class="form-group mb-4">
+																			<label for="name">Tên khách hàng (*)</label> <input
+																				type="text" class="form-control" id="txtName"
+																				name="txtName" placeholder="your name"
+																				value="${loginedUser.name }" />
+																		</div>
+																	</div>
 																</div>
-															</div>
-														</div>
 
-														<div class="row">
+																<div class="row">
 
-															<div class="col-md-12">
-																<div class="form-group mb-4">
-																	<label for="mobile">Customer mobile (*)</label> <input
-																		type="text" class="form-control" id="txtMobile"
-																		name="txtMobile" placeholder="your phone number"
-																		value="${loginedUser.mobile }" />
+																	<div class="col-md-12">
+																		<div class="form-group mb-4">
+																			<label for="mobile">Điện thoại (*)</label> <input
+																				type="text" class="form-control" id="txtMobile"
+																				name="txtMobile" placeholder="your phone number"
+																				value="${loginedUser.mobile }" />
+																		</div>
+																	</div>
 																</div>
-															</div>
-														</div>
 
-														<div class="row">
+																<div class="row">
 
-															<div class="col-md-12">
-																<div class="form-group mb-4">
-																	<label for="phone">Customer email</label> <input
-																		type="email" class="form-control" id="txtEmail"
-																		name="txtEmail" placeholder="your email"
-																		value="${loginedUser.email }" />
+																	<div class="col-md-12">
+																		<div class="form-group mb-4">
+																			<label for="phone">Địa chỉ email</label> <input
+																				type="email" class="form-control" id="txtEmail"
+																				name="txtEmail" placeholder="your email"
+																				value="${loginedUser.email }" />
+																		</div>
+																	</div>
 																</div>
-															</div>
-														</div>
 
-														<div class="row">
+																<div class="row">
 
-															<div class="col-md-12">
-																<div class="form-group mb-4">
-																	<label for="phone">Customer address</label> <input
-																		type="text" class="form-control" id="txtAddress"
-																		name="txtAddress" placeholder="your address"
-																		value="${loginedUser.address }" />
+																	<div class="col-md-12">
+																		<div class="form-group mb-4">
+																			<label for="phone">Địa chỉ giao hàng</label> <input
+																				type="text" class="form-control" id="txtAddress"
+																				name="txtAddress" placeholder="your address"
+																				value="${loginedUser.address }" />
+																		</div>
+																	</div>
 																</div>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="form-group mb-4">
-																	<a href="${classpath }/index"
-																		class="btn btn-primary active" role="button"
-																		aria-pressed="true"> Back to shop </a>
-																	<button class="btn btn-primary" onclick="_placeOrder()">
-																	Place orders</button>
+																<div class="row">
+																	<div class="col-md-12">
+																		<div class="form-group mb-4">
+																			<a href="${classpath }/index"
+																				class="btn btn-primary active" role="button"
+																				aria-pressed="true"> Trang chủ </a>
+																			<button class="btn btn-primary"
+																				onclick="_placeOrder()">Đặt hàng</button>
 
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
+
+											</div>
+										</form>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="row" style="margin-top: 20px;">
+										<div class="col-md-12">
+											<div class="form-group mb-4">
+												<a href="${classpath}/index" class="btn btn-primary active"
+													role="button" aria-pressed="true"> Trang chủ </a>
+												<button id="placeOrderButton" class="btn btn-primary">Đặt
+													hàng</button>
 											</div>
 										</div>
-
 									</div>
-								</form>
-							</div>
+								</c:otherwise>
+							</c:choose>
 						</c:when>
 						<c:otherwise>
 							<div class="row">
@@ -292,7 +310,7 @@
 			});
 		}
 	</script>
-	
+
 	<script type="text/javascript">
 		deleteCartProduct = function(_productId) {
 			let data = {
@@ -308,9 +326,7 @@
 				dataType : "json", //Kieu du lieu tra ve tu controller la json
 
 				success : function(jsonResult) {
-					let totalProducts = jsonResult.totalCartProducts; 
-					//Viet lai so luong sau khi bam nut -, +
-					$("#productQuantity_" + jsonResult.productId).html(jsonResult.newQuantity); 
+					alert(jsonResult.code + ": " + jsonResult.message);
 				},
 
 				error : function(jqXhr, textStatus, errorMessage) {
@@ -348,6 +364,15 @@
 				}
 			});
 		}
+	</script>
+
+	<script type="text/javascript">
+	    document.addEventListener("DOMContentLoaded", function() {
+	        const placeOrderButton = document.querySelector("#placeOrderButton");
+	        placeOrderButton.addEventListener("click", function() {
+	            alert("Vui lòng đăng nhập để đặt hàng");
+	        });
+	    });
 	</script>
 
 </body>

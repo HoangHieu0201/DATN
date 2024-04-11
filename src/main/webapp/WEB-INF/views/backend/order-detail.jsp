@@ -59,8 +59,7 @@
 						<div class="row">
 							<div class="col-7 align-self-center">
 								<h2
-									class="page-title text-truncate text-dark font-weight-medium mb-1">Order
-									Detail</h2>
+									class="page-title text-truncate text-dark font-weight-medium mb-1">Chi tiết đơn hàng</h2>
 							</div>
 						</div>
 					</div>
@@ -92,14 +91,14 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Name:</h4>
+														<h4>Khách hàng:</h4>
 														<p>${saleOrder.customerName }</p>
 													</div>
 												</div>
 
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Mobile:</h4>
+														<h4>Điện thoại:</h4>
 														<p>${saleOrder.customerMobile }</p>
 													</div>
 												</div>
@@ -113,7 +112,7 @@
 												</div>
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Address:</h4>
+														<h4>Địa chỉ:</h4>
 														<p>${saleOrder.customerAddress }</p>
 													</div>
 												</div>
@@ -121,13 +120,13 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Create Date:</h4>
+														<h4>Ngày đặt:</h4>
 														<p>${saleOrder.createDate }</p>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>Update Date:</h4>
+														<h4>Ngày cập nhật:</h4>
 														<p>${saleOrder.updateDate }</p>
 													</div>
 												</div>
@@ -135,13 +134,13 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>User Create Sale Order:</h4>
+														<h4>Người lên đơn:</h4>
 														<p>${saleOrder.userCreateSaleOrder.username }</p>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<h4>User Update Sale Order:</h4>
+														<h4>Người cập nhật đơn:</h4>
 														<p>${saleOrder.userUpdateSaleOrder.username }</p>
 													</div>
 												</div>
@@ -150,16 +149,16 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group mb-4">
-														<h4>Purchased Products:</h4>
+														<h4>Các sản phẩm mua:</h4>
 														<br />
 														<table class="Purchased_Products ml-3">
 															<thead>
 																<tr>
 																	<th scope="col" class="text-center">No.</th>
-																	<th scope="col" class="text-center">Product</th>
-																	<th scope="col" class="text-center">Quantity</th>
-																	<th scope="col" class="text-center">Price</th>
-																	<th scope="col" class="text-center">Total</th>
+																	<th scope="col" class="text-center">Sản phẩm</th>
+																	<th scope="col" class="text-center">Số lượng</th>
+																	<th scope="col" class="text-center">Đơn giá</th>
+																	<th scope="col" class="text-center">Thành tiền</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -187,7 +186,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group mb-4">
-														<h4>Total Price:</h4>
+														<h4>Tổng tiền:</h4>
 														<p>${saleOrder.total }</p>
 													</div>
 												</div>
@@ -195,7 +194,7 @@
 											<div class="row">
 												<div class="col-md-12">
 													<div class="form-group mb-4">
-														<h4>Status:</h4>
+														<h4>Trạng thái:</h4>
 														<p>
 															<c:choose>
 																<c:when test="${saleOrder.status }">
@@ -231,13 +230,6 @@
 						</div>
 						<!-- ============================================================== -->
 						<!-- End Container fluid  -->
-						<!-- ============================================================== -->
-						<!-- ============================================================== -->
-						<!-- footer -->
-						<!-- ============================================================== -->
-						<jsp:include page="/WEB-INF/views/backend/layout/footer.jsp"></jsp:include>
-						<!-- ============================================================== -->
-						<!-- End footer -->
 						<!-- ============================================================== -->
 					</div>
 					<!-- ============================================================== -->

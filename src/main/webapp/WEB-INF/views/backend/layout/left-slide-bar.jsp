@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- Sidebar menu doc-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -17,7 +19,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="${classpath }/admin/home">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Trang chủ</span></a>
             </li>
 
             <!-- Divider -->
@@ -25,28 +27,28 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Administration system
+                Hệ thống quản trị
             </div>
 
             <!-- Nav Item - category -->
             <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/category/list">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Categories</span></a>
+                    <span>Quản lý hãng</span></a>
             </li>
 
             <!-- Nav Item - Product -->
             <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/product/list">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Products</span></a>
+                    <span>Quản lý sản phẩm</span></a>
             </li>
 
             <!-- Nav Item - user -->
             <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/user/list">
                     <i class="fa-solid fa-users"></i>
-                    <span>Users</span></a>
+                    <span>Quản lý người dùng</span></a>
             </li>
 
             <!-- Nav Item - role -->
@@ -60,14 +62,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/order/list">
                     <i class="fa-solid fa-money-bills"></i>
-                    <span>Orders</span></a>
+                    <span>Quản lý đơn hàng</span></a>
             </li>
 
             <!-- Nav Item - contact -->
             <li class="nav-item">
                 <a class="nav-link" href="${classpath }/admin/contact/list">
                     <i class="fa-regular fa-address-book"></i>
-                    <span>Customers' Feedback</span></a>
+                    <span>Phản hồi khách hàng</span></a>
+            </li>
+
+			<!-- Nav Item - admins -->
+            <li class="nav-item">
+                <a class="nav-link" href="${classpath }/admin/admins/list">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Đồng quản trị</span></a>
             </li>
 
 			<!-- Nav Item - logout -->

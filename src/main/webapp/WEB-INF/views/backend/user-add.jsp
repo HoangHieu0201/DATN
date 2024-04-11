@@ -57,7 +57,7 @@
                     <div class="page-breadcrumb">
                         <div class="row">
                             <div class="col-7 align-self-center">
-                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Add New User</h2>
+                                <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Thêm mới</h2>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                                     
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="role">User role</label>
+                                                            <label for="role">Vai trò</label>
                                                             <select class="form-control" id="role" name="role">
                                                                 <c:forEach items="${roles }" var="role">
                                                                     <option value="${role.name }" label="${role.name }"></option>
@@ -112,7 +112,7 @@
                                                     
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="password">Password</label>
+                                                            <label for="password">Mật khẩu</label>
                                                             <sf:input path="password" type="passward" class="form-control" id="password" name="password" placeholder="password"></sf:input>
                                                         </div>
                                                     </div>
@@ -121,14 +121,14 @@
                                                 <div class="row">
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="name">Full name</label>
+                                                            <label for="name">Họ tên</label>
                                                             <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="full name"></sf:input>
                                                         </div>
                                                     </div>
                                                     
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="mobile">Mobile</label>
+                                                            <label for="mobile">Điện thoại</label>
                                                             <sf:input path="mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="mobile"></sf:input>
                                                         </div>
                                                     </div>
@@ -144,16 +144,16 @@
                                                     
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="address">Address</label>
+                                                            <label for="address">Địa chỉ</label>
                                                             <sf:input path="address" type="text" class="form-control" id="address" name="address" placeholder="address"></sf:input>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 
-                                               <%--  <div class="row">
+                                               <%-- <div class="row">
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="role">Create by</label>
+                                                            <label for="role">Người tạo</label>
                                                             <sf:select path="userCreateUser.id" class="form-control" id="userCreateUser">
                                                                 <sf:options items="${loginedUser }" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -162,7 +162,7 @@
                                             		
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="role">Update by</label>
+                                                            <label for="role">Người cập nhật</label>
                                                             <sf:select path="userUpdateUser.id" class="form-control" id="userUpdateUser">
                                                                 <sf:options items="" itemValue="id" itemLabel="username"></sf:options>
                                                             </sf:select>
@@ -173,7 +173,7 @@
                                                 <div class="row">
                                                      <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="createdate">Create date</label>
+                                                            <label for="createdate">Ngày tạo</label>
                                                             
                                                             <sf:input path="createDate" class="form-control" type="date" 
                                                                         id="createDate" name="createDate"></sf:input>
@@ -182,7 +182,7 @@
                                             
                                                     <div class="col-md-6">
                                                         <div class="form-group mb-4">
-                                                            <label for="updatedate">Update date</label>
+                                                            <label for="updatedate">Ngày cập nhật</label>
                                                            
                                                             <sf:input path="updateDate" class="form-control" type="date" 
                                                                         id="updateDate" name="updateDate" ></sf:input>
@@ -193,7 +193,7 @@
                                                 <div class="row">
                                                      <div class="col-md-12">
                                                         <div class="form-group mb-4">
-                                                            <label for="description">Description</label>
+                                                            <label for="description">Mô tả</label>
                                                             <sf:textarea path="description" id="description" name="description"
                                                                         class="form-control" rows="3" placeholder="desription..."></sf:textarea>
                                                         </div>
@@ -203,7 +203,7 @@
                                                 <div class="row">
                                                      <div class="col-md-12">
                                                         <div class="form-group mb-4">
-                                                            <label for="avatarFile">Choose user Avatar</label>
+                                                            <label for="avatarFile">Chọn avatar</label>
                                                             <input id="avatarFile" name="avatarFile" type="file" class="form-control-file" multiple="multiple" >
                                                         </div>
                                                     </div>
@@ -213,9 +213,9 @@
                                                      <div class="col-md-12">
                                                         <div class="form-group mb-4">
                                                             <a href="${classpath }/admin/user/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-                                                                Back to list
+                                                                Quay lại
                                                             </a>
-                                                            <button type="submit" class="btn btn-primary">Save user</button>
+                                                            <button type="submit" class="btn btn-primary">Thêm</button>
                                                         </div>
                                                     </div>
                                                 </div>

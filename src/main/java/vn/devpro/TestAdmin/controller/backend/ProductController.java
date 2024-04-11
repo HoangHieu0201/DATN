@@ -124,7 +124,7 @@ public class ProductController extends BaseController implements FinalConstant{
 		productSearch.setSizeOfPage(SIZE_OF_PAGE); // so ban ghi tren mot trang
 		productSearch.setTotalItems(allProducts.size()); // tong so san pham tim kiem
 
-		List<Category> categories = categoryService.findAll();
+		List<Category> categories = categoryService.findAllActive();
 		model.addAttribute("categories", categories);
 
 //				List<Product> products = productService.searchProduct(productSearch);

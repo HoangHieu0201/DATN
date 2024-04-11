@@ -56,7 +56,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                                class="fas fa-download fa-sm text-white-50"></i> Tạo báo cáo</a>
                     </div>
 
                     <!-- Content Row -->
@@ -69,7 +69,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Revenue</div>
+                                                Tổng doanh thu</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 												<fmt:formatNumber value="${totalSales }"
                                                   minFractionDigits="0"></fmt:formatNumber>(vnđ)
@@ -90,7 +90,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Number of orders</div>
+                                                Số lượng đơn hàng</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${totalOrders }</div>
                                         </div>
                                         <div class="col-auto">
@@ -108,7 +108,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                            	Number of sold products 
+                                            	Tổng số sản phẩm đã bán
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -138,7 +138,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                number of users</div>
+                                                Số lượng người dùng</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">${totalUsers }</div>
                                         </div>
                                         <div class="col-auto">
