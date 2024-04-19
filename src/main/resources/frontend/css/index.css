@@ -118,9 +118,9 @@ main {
 }
 .dienthoai .card-body .card-title a{
     color: #000;
-    font-weight: bold;
+    font-weight: bolder;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
 }
 

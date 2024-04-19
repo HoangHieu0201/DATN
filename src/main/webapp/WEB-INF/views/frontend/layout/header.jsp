@@ -130,7 +130,7 @@
 													<li><a class="dropdown-item" style="display: block;" href="#"> 
 																Xin chào,<br> ${loginedUser.name }
 														</a></li>
-													<li><a class="dropdown-item" style="display: block;" href="#"> <i
+													<li><a class="dropdown-item" style="display: block;" href="${classpath}/change-password"> <i
 																class="fa-solid fa-gear"
 																style="font-size: 20px;"></i>&nbsp; Đổi mật khẩu
 														</a></li>

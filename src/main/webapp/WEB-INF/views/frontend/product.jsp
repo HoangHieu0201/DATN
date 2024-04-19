@@ -17,13 +17,14 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${classpath}/frontend/bootstrap/bootstrap.min.css">
 <jsp:include page="/WEB-INF/views/frontend/layout/css.jsp"></jsp:include>
-<link rel="stylesheet" href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet"
+	href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
 
 </head>
 <body id="page-top">
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/frontend/layout/header.jsp"></jsp:include>
-	
+
 
 	<!-- Begin main -->
 	<main style="padding: 1% 0 0 0;">
@@ -46,13 +47,13 @@
 										<c:forEach items="${categories }" var="category">
 											<option value="${category.id }">${category.name }</option>
 										</c:forEach>
-								</select></li> 
+								</select></li>
 								<%-- <c:forEach var="category" items="${categories }"
 									varStatus="loop">
 									<li class="list-group-item" id="categoryId" name="categoryId">
 										<a href="/product" class="card-link">${category.name }</a>
 									</li>
-								</c:forEach> --%> 
+								</c:forEach> --%>
 								<!-- <li class="list-group-item"><a href="#" class="card-link">Apple</a></li>
 								<li class="list-group-item"><a href="#" class="card-link">SamSung</a></li>
 								<li class="list-group-item"><a href="#" class="card-link">XiaoMi</a></li>
@@ -132,7 +133,7 @@
 									<div class="col-12 col-lg-4 col-md-6 mt-1 mb-4">
 										<div class="card">
 											<a href="${classpath }/product-detail/${product.id}"> <img
-												class="card-img-top" style="width: 305.22px;height: 300px;"
+												class="card-img-top" style="width: 305.22px; height: 300px;"
 												src="${classpath }/FileUploads/${product.avatar }"
 												alt="avatar">
 											</a>
@@ -146,8 +147,7 @@
 														minFractionDigits="0"></fmt:formatNumber>
 													<sup>vnđ</sup>
 												</p>
-												<a class="btn btn-primary btn-block"
-													onclick="addToCart(${product.id },1, '${product.name }')">
+												<a class="btn btn-primary btn-block" style="color: white;" onclick="addToCart(${product.id },1, '${product.name }')">
 													Thêm vào giỏ hàng</a>
 											</div>
 										</div>

@@ -9,5 +9,6 @@
 <link rel="stylesheet" href="${classpath}/frontend/css/product_info.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/product.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/register.css">
+<link rel="stylesheet" href="${classpath}/frontend/css/change_password.css">
 <link rel="stylesheet" href="${classpath}/frontend/fontawesome-free-6.5.1-web/css/all.min.css">
 <link rel="stylesheet" href="${classpath}/frontend/css/simplePagination.css">

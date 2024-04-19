@@ -32,16 +32,19 @@ public class LoginController extends BaseController{
 		return "login";
 	}
 	
+	//Đưa tới trang đăng ký
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
 	public String signAccount() throws IOException{
 		return "signup";
 	}
 	
+	//Hoàn thành form đăng ký
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String register(final Model model, final HttpServletRequest request,
 			final HttpServletResponse response) throws IOException {
 		
 		//Ktra xem 2 password nhâp giống nhau chưa chua
+		//+ Giống nhau
 		if(request.getParameter("password").equals(request.getParameter("retypepassword"))) {
 			User user = new User();
 			user.setUsername(request.getParameter("username"));
@@ -59,6 +62,7 @@ public class LoginController extends BaseController{
 			return "redirect:/login";
 		}
 		else {
+			//Ko giống nhau
 			String errorMessage = "*Password không đồng bộ !";
 			String username = request.getParameter("username");
 			String name = request.getParameter("name");

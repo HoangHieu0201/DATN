@@ -52,7 +52,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Xin chào!</h1>
                                     </div>
                                     
                                     <c:if test="${not empty param.login_error }">
@@ -71,21 +71,26 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" name="password" placeholder="Password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
+                                        <div class="form-group" style="display: flex;">
+                                            <div class="col-6 custom-control custom-checkbox small">
                                                 <input class="form-check-input" type="checkbox"
 													id="remember-me" name="remember-me" /> 
-												<label class="form-check-label" for="remember-me"> Remember me </label>
+												<label class="form-check-label" for="remember-me"> Nhớ mật khẩu </label>
+                                            </div>
+                                            <div class="col-6 custom-control custom-checkbox small">
+                                                <input class="form-check-input" type="checkbox"
+													id="showPass" name="showPass" /> 
+												<label class="form-check-label" for="showPass"> Hiện mật khẩu </label>
                                             </div>
                                         </div>
 										<button type="submit" class="btn btn-primary btn-user btn-block"
 											style="width: 100%; margin: 10px 0 2px 0;">
-											Login
+											Đăng nhập
 										</button>
                                     </form>
                                     <hr>
                                     <div class="text-center" style="border-radius: 50px;background-color: royalblue;">
-                                        <a class="small" href="${classpath }/signup" style="color: white">Create an Account!</a>
+                                        <a class="small" href="${classpath }/signup" style="color: white">Tạo tài khoản!</a>
                                     </div>
                                 </div>
                             </div>
@@ -101,6 +106,28 @@
 
     <!-- Js -->
 	<jsp:include page="/WEB-INF/views/backend/layout/js.jsp"></jsp:include>
+
+	<script>
+		// Lấy ra checkbox "Hiện mật khẩu"
+		const showPassCheckbox = document.getElementById('showPass');
+	
+		// Lấy ra input chứa mật khẩu
+		const passwordInput = document.getElementById('password');
+	
+		// Định nghĩa hàm để hiển thị hoặc ẩn mật khẩu
+		function togglePasswordVisibility() {
+		    // Nếu checkbox được chọn, hiển thị mật khẩu
+		    if (showPassCheckbox.checked) {
+		        passwordInput.type = 'text';
+		    } else {
+		        // Ngược lại, ẩn mật khẩu
+		        passwordInput.type = 'password';
+		    }
+		}
+	
+		// Đăng ký sự kiện khi người dùng thay đổi trạng thái của checkbox
+		showPassCheckbox.addEventListener('change', togglePasswordVisibility);
+	</script>
 
 </body>
 

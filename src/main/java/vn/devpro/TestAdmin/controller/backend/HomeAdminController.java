@@ -1,6 +1,8 @@
 package vn.devpro.TestAdmin.controller.backend;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +77,14 @@ public class HomeAdminController extends BaseController {
 			int totalUsers = users.size();
 			model.addAttribute("totalUsers", totalUsers);
 			
+			// Thống kê doanh thu theo tháng từ cơ sở dữ liệu
+			List<BigDecimal> dashboardRevenue = saleOrderService.getMoneyByMonths(LocalDate.now().getYear());
+			System.out.println(dashboardRevenue);
+//			 Đưa dữ liệu vào model
+			model.addAttribute("dashboardRevenue", dashboardRevenue);
+			
 		return "backend/home";
 	}
 
+	
 }

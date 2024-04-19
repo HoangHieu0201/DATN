@@ -1,5 +1,7 @@
 package vn.devpro.TestAdmin.service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -8,16 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import vn.devpro.TestAdmin.dto.SearchModel;
 import vn.devpro.TestAdmin.model.SaleOrder;
 import vn.devpro.TestAdmin.model.User;
-import vn.devpro.TestAdmin.dto.SearchModel;
 
 @Service
 public class SaleOrderService extends BaseService<SaleOrder> {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Override
 	public Class<SaleOrder> clazz() {
 		return SaleOrder.class;
@@ -39,7 +41,7 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 		}
 		return super.saveOrUpdate(saleOrder);
 	}
-	
+
 //	@Transactional
 //	public SaleOrder saveOrder(SaleOrder saleOrder) {
 //		// Kiểm tra và thiết lập giá trị cho trường user trước khi lưu
@@ -52,7 +54,6 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 //		return super.saveOrUpdate(saleOrder);
 //	}
 
-	
 	public List<SaleOrder> findAllActive() {
 		return super.executeNativeSql("SELECT * FROM tbl_sale_order WHERE status = 1");
 	}
@@ -67,7 +68,8 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 		super.saveOrUpdate(saleOrder);
 	}
 
-	// ------------------------------------Search sale-order---------------------------------------------
+	// ------------------------------------Search
+	// sale-order---------------------------------------------
 
 	public List<SaleOrder> searchSaleOrder(SearchModel saleOrderSearch) {
 		// Tao cau lenhj sql
@@ -99,11 +101,23 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 		return super.executeNativeSql(sql);
 	}
 
+	// Lấy các đơn hàng của 1 khách hàng
+	public List<SaleOrder> getOrdersByUserId(int userId) {
+		String sql = "SELECT * FROM tbl_sale_order WHERE user_id ='" + userId + "' ORDER BY create_date DESC";
+
+		return super.executeNativeSql(sql);
+	}
 	
-	//Lấy các đơn hàng của 1 khách hàng
-		public List<SaleOrder> getOrdersByUserId(int userId) {
-		    String sql = "SELECT * FROM tbl_sale_order WHERE user_id ='" + userId + "' ORDER BY create_date DESC";
-		    
-		    return super.executeNativeSql(sql);
+
+	public List<BigDecimal> getMoneyByMonths(int year) {
+		List<BigDecimal> dashboardRevenue = new ArrayList<>();
+
+		for (int i = 1; i <= 12; i++) {
+			BigDecimal revenue = (BigDecimal) entityManager.createNativeQuery(
+					"SELECT COALESCE(SUM(total), 0) FROM tbl_sale_order WHERE status = 1 AND YEAR(create_date) = :year AND MONTH(create_date) = :month")
+					.setParameter("year", year).setParameter("month", i).getSingleResult();
+			dashboardRevenue.add(revenue);
 		}
+		return dashboardRevenue;
+	}
 }

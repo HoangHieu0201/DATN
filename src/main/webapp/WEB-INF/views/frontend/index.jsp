@@ -211,9 +211,9 @@
     </main>
 
 	 <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!-- <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
-    </a>
+    </a> -->
    
  	<!-- Footer -->
     <jsp:include page="/WEB-INF/views/frontend/layout/footer.jsp"></jsp:include>

@@ -209,8 +209,12 @@ public class CartController extends BaseController implements FinalConstant {
 				jsonResult.put("message", "Bạn chưa có giỏ hàng");
 			} else {
 				Cart cart = (Cart) session.getAttribute("cart"); // Lay gio hang
+				
+				session.removeAttribute("cart");
+				
 				// Luu cac sp trong gio hnag vao tbl_sale_order_product
 				SaleOrder saleOrder = new SaleOrder();
+
 				for (ProductCart productCart : cart.getProductCarts()) {
 					SaleOrderProduct saleOrderProduct = new SaleOrderProduct();
 					// Lay product trong db
@@ -246,15 +250,15 @@ public class CartController extends BaseController implements FinalConstant {
 				saleOrder.setCreateDate(new Date());
 
 				saleOrderService.saveOrder(saleOrder);
+				jsonResult.put("code", "200");
+				jsonResult.put("message", "Bạn đã đặt hàng thành công, cảm ơn bạn !");
 
 
+				
 				// Xoa gio hang sau khi da dat hàng
 //				cart.getProductCarts().clear();
 				cart = new Cart();
 				session.setAttribute("cart", cart);
-
-				jsonResult.put("code", "200");
-				jsonResult.put("message", "Bạn đã đặt hàng thành công, cảm ơn bạn !");
 			}
 
 		}

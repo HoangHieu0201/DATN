@@ -356,6 +356,7 @@
 				
 				success : function(jsonResult) {
 					alert(jsonResult.code + ": " + jsonResult.message);
+		            location.reload();
 					//$("#placeOrderSuccess").html(jsonResult.message);
 				},
 				

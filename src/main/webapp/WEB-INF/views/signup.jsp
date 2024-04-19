@@ -49,7 +49,7 @@
                                 <p class="text-red-900 mb-2 mt-1">${errorMessage }</p>
                             </div>
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Đăng ký tài khoản!</h1>
                             </div>
                             <form class="user" action="${classpath }/register" method="post">
                                 <div class="form-group row">
@@ -89,11 +89,11 @@
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-	                                    Register Account
+	                                    Đăng ký
 	                            </button>  
                             </form>
                             <div class="text-center">
-                                <a class="small" href="${classpath }/login">Already have an account? Login!</a>
+                                <a class="small" href="${classpath }/login">Bạn đã có tài khoản? Đăng nhập!</a>
                             </div>
                         </div>
                     </div>

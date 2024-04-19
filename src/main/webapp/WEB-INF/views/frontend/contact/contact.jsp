@@ -19,7 +19,7 @@
 
 	<main class="main" style="padding: 1% 0% 0 0%;">
 		<div class="main__contact">
-			<div class="container-fluid">
+			<div class="container-fluid" style="border-radius: 10px; background-color: white; padding: 6px 109px;">
 				<div class="row">
 					<div class="col-12 col-lg-6">
 						<div class="contact__title">
@@ -33,9 +33,8 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="contact__form-input">
-											<input type="text" class="form-input"
-												placeholder="Họ tên..." id="txtName" name="txtName"
-												value="${loginedUser.name }">
+											<input type="text" class="form-input" placeholder="Họ tên..."
+												id="txtName" name="txtName" value="${loginedUser.name }">
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -47,15 +46,15 @@
 									<div class="col-md-6">
 										<div class="contact__form-input">
 											<input type="text" class="form-input"
-												placeholder="Số điện thoại..." id="txtMobile" name="txtMobile"
-												value="${loginedUser.mobile }">
+												placeholder="Số điện thoại..." id="txtMobile"
+												name="txtMobile" value="${loginedUser.mobile }">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="contact__form-input">
 											<input type="text" class="form-input"
-												placeholder="Địa chỉ..." id="txtAddress"
-												name="txtAddress" value="${loginedUser.address }">
+												placeholder="Địa chỉ..." id="txtAddress" name="txtAddress"
+												value="${loginedUser.address }">
 										</div>
 									</div>
 									<div class="col-12">

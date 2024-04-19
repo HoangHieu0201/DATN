@@ -423,6 +423,8 @@
 
     <!-- Js -->
 	<jsp:include page="/WEB-INF/views/backend/layout/js.jsp"></jsp:include>
+	
+	<jsp:include page="/WEB-INF/views/backend/layout/revenueMonth.jsp"></jsp:include>
 </body>
 
 </html>
