@@ -203,9 +203,9 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group mb-4">
                                                             <a href="${classpath }/admin/order/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-                                                                Back to list
+                                                                Quay lại
                                                             </a>
-                                                            <button type="submit" class="btn btn-primary">Save edit order</button>
+                                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
                                                         </div>
                                                     </div>
                                                 </div>
