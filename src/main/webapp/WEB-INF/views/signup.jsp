@@ -46,7 +46,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                         	<div class="text-center">
-                                <p class="text-red-900 mb-2 mt-1">${errorMessage }</p>
+                                <p class="text-red-900 mb-2 mt-1" style="color: red">${errorMessage }</p>
                             </div>
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Đăng ký tài khoản!</h1>
@@ -56,6 +56,7 @@
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="username" name="username"
                                             placeholder="User Name" value="${username }" required>
+                                        <span style="color: red">${errorMessage1 }</span>    
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="name" name = "name"
@@ -77,6 +78,7 @@
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="mobile" name = "mobile"
                                             placeholder="Mobile" value="${mobile }" required>
+                                            <span style="color: red">${errorMessage3 }</span> 
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="address" name = "address"
@@ -86,6 +88,7 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="email" name = "email"
                                         placeholder="Email Address" value="${email }">
+                                        <span style="color: red">${errorMessage2 }</span> 
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
