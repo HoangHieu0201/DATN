@@ -220,61 +220,47 @@
     
     <jsp:include page="/WEB-INF/views/frontend/layout/js.jsp"></jsp:include>
 
-   <script>
-    // Hàm để cập nhật hiển thị của timer
-    function updateTimer(timerElement, hours, minutes, seconds) {
-        // Cập nhật nội dung của phần tử timer
-        timerElement.innerHTML = `<strong>${hours < 10 ? '0' + hours : hours}</strong><span>:</span><strong>${minutes < 10 ? '0' + minutes : minutes}</strong><span>:</span><strong>${seconds < 10 ? '0' + seconds : seconds}</strong>`;
-    }
+    <script>
+        function startCountdown(timerDiv) {
+            var hoursSpan = timerDiv.querySelector('.hours');
+            var minutesSpan = timerDiv.querySelector('.minutes');
+            var secondsSpan = timerDiv.querySelector('.seconds');
 
-    // Hàm đếm ngược
-    function countdown() {
-        // Lặp qua từng phần tử timer và thực hiện đếm ngược
-        Array.from(timerElements).forEach(function (timerElement) {
-            // Lấy giá trị của giờ, phút và giây từ thuộc tính dữ liệu của phần tử HTML
-            var hours = parseInt(timerElement.getAttribute("data-hours"));
-            var minutes = parseInt(timerElement.getAttribute("data-minutes"));
-            var seconds = parseInt(timerElement.getAttribute("data-seconds"));
+            var hours = 23; // Đặt giờ bắt đầu
+            var minutes = 30; // Đặt phút bắt đầu
+            var seconds = 0; // Đặt giây bắt đầu
 
-            // Cập nhật hiển thị ban đầu cho mỗi phần tử timer
-            updateTimer(timerElement, hours, minutes, seconds);
+            var countdown = setInterval(function() {
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    clearInterval(countdown);
+                } else {
+                    if (seconds === 0) {
+                        if (minutes === 0) {
+                            hours--;
+                            minutes = 59;
+                        } else {
+                            minutes--;
+                        }
+                        seconds = 59;
+                    } else {
+                        seconds--;
+                    }
 
-            // Đếm ngược
-            var countdownInterval = setInterval(function () {
-                // Giảm số giây
-                seconds--;
-
-                // Nếu số giây dưới 0
-                if (seconds < 0) {
-                    // Giảm số phút và đặt lại số giây
-                    minutes--;
-                    seconds = 59;
+                    hoursSpan.textContent = hours < 10 ? '0' + hours : hours;
+                    minutesSpan.textContent = minutes < 10 ? '0' + minutes : minutes;
+                    secondsSpan.textContent = seconds < 10 ? '0' + seconds : seconds;
                 }
+            }, 1000);
+        }
 
-                // Nếu số phút dưới 0
-                if (minutes < 0) {
-                    // Giảm số giờ và đặt lại số phút
-                    hours--;
-                    minutes = 59;
-                }
-
-                // Cập nhật hiển thị cho phần tử timer
-                updateTimer(timerElement, hours, minutes, seconds);
-
-                // Nếu số giờ dưới 0
-                if (hours < 0) {
-                    // Dừng đếm ngược
-                    clearInterval(countdownInterval);
-                    // Hiển thị thông báo hoặc thực hiện hành động khác khi hết thời gian
-                    console.log("Hết thời gian!");
-                }
-            }, 1000); // Thực hiện cập nhật mỗi giây (1000 milliseconds)
-        });
-    }
-
-    // Gọi hàm đếm ngược khi trang được tải
-    countdown();
-</script>
+        // Start the countdown for each timer when the page loads
+        window.onload = function() {
+            var timerDivs = document.querySelectorAll('.timer');
+            timerDivs.forEach(timerDiv => {
+                startCountdown(timerDiv);
+            })
+        };
+    </script>
 
   
     <!-- Add to cart -->
