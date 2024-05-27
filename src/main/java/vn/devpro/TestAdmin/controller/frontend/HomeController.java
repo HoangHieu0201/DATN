@@ -90,6 +90,7 @@ public class HomeController extends BaseController implements FinalConstant {
 	public String product(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
 
+		//Tìm sản phẩm gợi ý
 		List<Product> searchProducts = productService.findAllActive();
 		model.addAttribute("searchProducts", searchProducts);
 
@@ -140,33 +141,6 @@ public class HomeController extends BaseController implements FinalConstant {
 			model.addAttribute("products", products);
 		}
 
-//				// Ktra tieu chi tim kkiem tu giá den giá
-//				String beginPrice = null;
-//				String endPrice = null;
-//				if (!StringUtils.isEmpty(request.getParameter("beginPrice"))
-//						&& !StringUtils.isEmpty(request.getParameter("endPrice"))) {
-//					beginPrice = request.getParameter("beginPrice");
-//					endPrice = request.getParameter("endPrice");
-//					
-//					//ĐỊnh dạng tiền
-//					String endPriceStr = request.getParameter("endPrice");
-//					String beginPriceStr = request.getParameter("beginPrice");
-//					// Loại bỏ các ký tự không phải số
-//					beginPriceStr = beginPriceStr.replaceAll("[^\\d.]", "");
-//					endPriceStr = endPriceStr.replaceAll("[^\\d.]", "");
-//
-//					// Chuyển đổi chuỗi thành số thực
-//					double beginPriceFormat = Double.parseDouble(beginPriceStr);
-//					double endPriceFormat = Double.parseDouble(endPriceStr);
-//					
-//					DecimalFormat currencyFormat = new DecimalFormat("#,###.##");
-//					String formattedBeginPrice = currencyFormat.format(beginPriceFormat);
-//					model.addAttribute("formattedBeginPrice", formattedBeginPrice);
-//					String formattedEndPrice = currencyFormat.format(endPriceFormat);
-//					model.addAttribute("formattedEndPrice", formattedEndPrice);
-//				}
-//				productSearch.setBeginPrice(beginPrice);
-//				productSearch.setEndPrice(endPrice);
 
 		// Tìm theo mức giá
 		String[] priceRanges = request.getParameterValues("priceRange");
@@ -179,41 +153,6 @@ public class HomeController extends BaseController implements FinalConstant {
 			model.addAttribute("products", products);
 		}
 
-//				// Bat dau phan trang
-//				if (!StringUtils.isEmpty(request.getParameter("currentPage"))) {
-//					productSearch.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
-//				} else {
-//					productSearch.setCurrentPage(1);
-//				}
-//
-//				List<Product> allProducts = productService.searchProduct(productSearch);
-//
-//				List<Product> products = new ArrayList<Product>();
-//
-//				// Tong so trang theo tim kiem
-//				int totalPages = allProducts.size() / SIZE_OF_PAGE;
-//				if (allProducts.size() % SIZE_OF_PAGE > 0) {
-//					totalPages++;
-//				}
-//
-//				// Neu tong so trang < trang hien tai (Lại bấm tìm kiếm)
-//				if (totalPages < productSearch.getCurrentPage()) {
-//					productSearch.setCurrentPage(1);
-//				}
-//
-//				// Lay sanh sach sp can hien thi trong 1 trang
-//				int firstIndex = (productSearch.getCurrentPage() - 1) * SIZE_OF_PAGE; // Vi tri dau 1 trang
-//				int index = firstIndex, count = 0;
-//				while (index < allProducts.size() && count < SIZE_OF_PAGE) {
-//					products.add(allProducts.get(index));
-//					index++;
-//					count++;
-//				}
-//
-//				// Phan trang
-//				productSearch.setSizeOfPage(SIZE_OF_PAGE); // so ban ghi tren mot trang
-//				productSearch.setTotalItems(allProducts.size()); // tong so san pham tim kiem
-//
 		List<Category> categories = categoryService.findAllActive();
 		model.addAttribute("categories", categories);
 

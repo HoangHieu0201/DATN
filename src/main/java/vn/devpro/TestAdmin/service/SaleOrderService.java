@@ -3,6 +3,7 @@ package vn.devpro.TestAdmin.service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -98,6 +99,9 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 			sql += " AND p.create_date BETWEEN '" + beginDate + "' AND '" + endDate + "'";
 		}
 
+		// Thêm sắp xếp theo create_date giảm dần
+		sql += " ORDER BY p.create_date DESC";
+
 		return super.executeNativeSql(sql);
 	}
 
@@ -119,5 +123,19 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 			dashboardRevenue.add(revenue);
 		}
 		return dashboardRevenue;
+	}
+
+	public List<String> getYearsFromSaleOrders() {
+		String query = "SELECT DISTINCT YEAR(create_date) FROM tbl_sale_order WHERE status = 1 ORDER BY YEAR(create_date) LIMIT 3";
+		List<Integer> years = entityManager.createNativeQuery(query).getResultList();
+		return years.stream()
+				.map(String::valueOf)
+				.collect(Collectors.toList());
+	}
+
+	public List<BigDecimal> getMoneyByYear() {
+		String query = "SELECT SUM(total) FROM tbl_sale_order WHERE status = 1 group by year(create_date) ORDER BY YEAR(create_date) LIMIT 3";
+		List<BigDecimal> revenueByYear = entityManager.createNativeQuery(query).getResultList();
+		return revenueByYear;
 	}
 }

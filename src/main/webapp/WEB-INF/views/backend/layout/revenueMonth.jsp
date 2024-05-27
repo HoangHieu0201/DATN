@@ -53,7 +53,7 @@
                         maxTicksLimit: 5,
                         padding: 10,
                         callback: function(value, index, values) {
-                            return '$' + number_format(value);
+                            return  number_format(value)+ ' vnđ' ;
                         }
                     },
                     gridLines: {
@@ -85,7 +85,7 @@
                 callbacks: {
                     label: function(tooltipItem, chart) {
                         var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                        return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                        return datasetLabel + ": " + number_format(tooltipItem.yLabel) + ' vnđ';
                     }
                 }
             }

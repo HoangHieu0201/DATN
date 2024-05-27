@@ -29,7 +29,7 @@ public abstract class BaseService<E extends BaseModel> {
 	@SuppressWarnings("unchecked")
 	public List<E> findAll() {
 		Table table = clazz().getAnnotation(Table.class);
-		return (List<E>) entityManager.createNativeQuery("SELECT * FROM " + table.name(), 
+		return (List<E>) entityManager.createNativeQuery("SELECT * FROM " + table.name() + " order by create_date desc",
 				clazz()).getResultList();
 	}
 	

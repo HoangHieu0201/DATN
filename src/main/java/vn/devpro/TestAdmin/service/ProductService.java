@@ -240,7 +240,10 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 
 			sql += " AND p.sale_price BETWEEN '" + beginPrice + "' AND '" + endPrice + "'";
 		}
-		
+
+		// Thêm sắp xếp theo create_date giảm dần
+		sql += " ORDER BY p.create_date DESC";
+
 		return super.executeNativeSql(sql);
 	}
 	
@@ -286,7 +289,9 @@ public class ProductService extends BaseService<Product> implements FinalConstan
 
 				sql += " AND year(p.create_date) BETWEEN '" + beginYear + "' AND '" + endYear + "'";
 			}
-			
+
+			// Thêm sắp xếp theo create_date giảm dần
+			sql += " ORDER BY p.create_date DESC";
 			
 			return super.executeNativeSql(sql);
 		}

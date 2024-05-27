@@ -1,8 +1,10 @@
 package vn.devpro.TestAdmin.controller.backend;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,11 @@ import vn.devpro.TestAdmin.service.SaleOrderProductService;
 import vn.devpro.TestAdmin.service.SaleOrderService;
 import vn.devpro.TestAdmin.service.UserService;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("/admin/")
 public class HomeAdminController extends BaseController {
@@ -33,7 +40,7 @@ public class HomeAdminController extends BaseController {
 	private UserService userService;
 
 	@RequestMapping(value = "home", method = RequestMethod.GET)
-	public String home(final Model model) {
+	public String home(final Model model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Tổng doanh thu
 			List<SaleOrder> saleOrders = saleOrderService.findAll();
 	
@@ -76,14 +83,24 @@ public class HomeAdminController extends BaseController {
 			List<User> users = userService.getAllUsers();
 			int totalUsers = users.size();
 			model.addAttribute("totalUsers", totalUsers);
-			
-			// Thống kê doanh thu theo tháng từ cơ sở dữ liệu
+
+		//	Thống kê doanh thu theo tháng từ cơ sở dữ liệu
 			List<BigDecimal> dashboardRevenue = saleOrderService.getMoneyByMonths(LocalDate.now().getYear());
-			System.out.println(dashboardRevenue);
-//			 Đưa dữ liệu vào model
+			System.out.println("Doanh thu từng tháng: " + dashboardRevenue);
+			//	Đưa dữ liệu vào model
 			model.addAttribute("dashboardRevenue", dashboardRevenue);
-			
-		return "backend/home";
+
+		//	Thống kê doanh thu theo năm từ db
+			List<String> years = saleOrderService.getYearsFromSaleOrders();
+			System.out.println("Các năm: " + years);
+			model.addAttribute("years", years);
+			List<BigDecimal> revenueByYear = saleOrderService.getMoneyByYear();
+			System.out.println("Doanh thu từng năm: " + revenueByYear);
+			model.addAttribute("revenueByYear", revenueByYear);
+
+			List<String> colors = Arrays.asList("#4e73df", "#1cc88a", "#36b9cc");
+			model.addAttribute("colors", colors);
+			return "backend/home";
 	}
 
 	

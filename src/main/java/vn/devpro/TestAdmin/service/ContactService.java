@@ -73,6 +73,9 @@ public class ContactService extends BaseService<Contact>{
 				sql += " AND p.create_date BETWEEN '" + beginDate + "' AND '" + endDate + "'";
 			}
 
+			// Thêm sắp xếp theo create_date giảm dần
+			sql += " ORDER BY p.create_date DESC";
+
 			return super.executeNativeSql(sql);
 		}
 

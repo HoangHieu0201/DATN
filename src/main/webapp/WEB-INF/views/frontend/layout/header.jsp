@@ -73,7 +73,7 @@
 
 							<div class="search">
 								<div class="border">
-									<form class="form-inline justify-content-center">
+									<form class="form-inline justify-content-center" action="${classpath }/product" method="get">
 										<input type="text" class="form-control" placeholder="Nhập sản phẩm cần tìm"
 											id="keyword" name="keyword" value="${productSearch.keyword }">
 										<button class="btn btn-danger" type="submit" id="btnSearch" name="btnSearch">

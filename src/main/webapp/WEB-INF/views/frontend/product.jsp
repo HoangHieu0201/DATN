@@ -171,6 +171,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</form>
 
 
@@ -197,7 +198,7 @@
 			$("#beginYear").val(${productSearch.beginYear});
 			//Dat gia tri cua category ung voi dieu kien search truoc do
 			$("#endYear").val(${productSearch.endYear});
-			
+
 			$("#paging").pagination({
 				currentPage: ${productSearch.currentPage}, //Trang hien tai
 				items: ${productSearch.totalItems}, //Tong so san pham (total products)
@@ -213,14 +214,14 @@
 
 	<!-- Add to cart -->
 	<script type="text/javascript">
-		addToCart = function(_productId, _quantity, _productName) {		
+		addToCart = function(_productId, _quantity, _productName) {
 			//alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
 			let data = {
 				productId: _productId, //lay theo id
 				quantity: _quantity,
 				productName: _productName,
 			};
-				
+
 			//$ === jQuery
 			jQuery.ajax({
 				url : "/add-to-cart",
@@ -228,13 +229,13 @@
 				contentType: "application/json",
 				data : JSON.stringify(data),
 				dataType : "json", //Kieu du lieu tra ve tu controller la json
-				
+
 				success : function(jsonResult) {
-					alert(jsonResult.code + ": " + jsonResult.message); 
+					alert(jsonResult.code + ": " + jsonResult.message);
 					let totalProducts = jsonResult.totalCartProducts;
 					$("#totalCartProductsId").html(totalProducts);
 				},
-				
+
 				error : function(jqXhr, textStatus, errorMessage) {
 					alert(jsonResult.code + ': Đã có lỗi xay ra...!')
 				},
