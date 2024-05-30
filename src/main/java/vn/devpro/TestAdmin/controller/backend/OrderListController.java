@@ -179,23 +179,22 @@ public class OrderListController extends BaseController implements FinalConstant
 		return "redirect:/admin/order/list";
 	}
 
-////	@RequestMapping(value = "delete/{categoryId}", method = RequestMethod.GET)
-////	public String delete(final Model model,
-////			@PathVariable("categoryId") int categoryId) {
-////		
-////		categoryService.deleteCategoryId(categoryId); //Xoá du lieu
-////		
-////		return "redirect:/admin/category/list";
-////	}
-
 	@RequestMapping(value = "delete/{saleOrderId}", method = RequestMethod.GET)
 	public String delete(final Model model,
 			@PathVariable("saleOrderId") int saleOrderId) {
-		
-		//Lay order trong db bang id
-		SaleOrder saleOrder = saleOrderService.getById(saleOrderId);	
-		saleOrder.setStatus(false);
-		saleOrderService.inactiveSaleOrder(saleOrder);
+
+		saleOrderService.deleteSaleOrderId(saleOrderId);
 		return "redirect:/admin/order/list";
 	}
+
+//	@RequestMapping(value = "delete/{saleOrderId}", method = RequestMethod.GET)
+//	public String delete(final Model model,
+//			@PathVariable("saleOrderId") int saleOrderId) {
+//
+//		//Lay order trong db bang id
+//		SaleOrder saleOrder = saleOrderService.getById(saleOrderId);
+//		saleOrder.setStatus(false);
+//		saleOrderService.inactiveSaleOrder(saleOrder);
+//		return "redirect:/admin/order/list";
+//	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,4 +139,5 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 		List<BigDecimal> revenueByYear = entityManager.createNativeQuery(query).getResultList();
 		return revenueByYear;
 	}
+
 }

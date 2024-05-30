@@ -138,23 +138,22 @@ public class AdminContactController extends BaseController implements FinalConst
 		return "redirect:/admin/contact/list";
 	}
 
-////	@RequestMapping(value = "delete/{categoryId}", method = RequestMethod.GET)
-////	public String delete(final Model model,
-////			@PathVariable("categoryId") int categoryId) {
-////		
-////		categoryService.deleteCategoryId(categoryId); //Xoá du lieu
-////		
-////		return "redirect:/admin/category/list";
-////	}
-
 	@RequestMapping(value = "delete/{contactId}", method = RequestMethod.GET)
 	public String delete(final Model model,
-			@PathVariable("contactId") int contactId) {
-		
-		//Lay contact trong db bang id
-		Contact contact = contactService.getById(contactId);	
-		contact.setStatus(false);
-		contactService.inactiveContact(contact);
+						 @PathVariable("contactId") int contactId) {
+
+		contactService.deleteContactId(contactId);
 		return "redirect:/admin/contact/list";
 	}
+
+//	@RequestMapping(value = "delete/{contactId}", method = RequestMethod.GET)
+//	public String delete(final Model model,
+//			@PathVariable("contactId") int contactId) {
+//
+//		//Lay contact trong db bang id
+//		Contact contact = contactService.getById(contactId);
+//		contact.setStatus(false);
+//		contactService.inactiveContact(contact);
+//		return "redirect:/admin/contact/list";
+//	}
 }

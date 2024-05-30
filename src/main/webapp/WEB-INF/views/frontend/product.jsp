@@ -62,23 +62,45 @@
 						</div>
 						<div class="card mt-3">
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item group-item-title">Lọc theo giá</li>
-								<li class="list-group-item"><input type="checkbox"
-									value="0-1000000" name="priceRange" id="price_1"
-									<c:if test="${param.priceRange != null && param.priceRange.contains('0-1000000')}">checked</c:if>>
-									<label for="price_1">0 - 1.000.000</label></li>
-								<li class="list-group-item"><input type="checkbox"
-									value="1000000-5000000" name="priceRange" id="price_2"
-									<c:if test="${param.priceRange != null && param.priceRange.contains('1000000-5000000')}">checked</c:if>>
-									<label for="price_2">1.000.000 - 5.000.000</label></li>
-								<li class="list-group-item"><input type="checkbox"
-									value="5000000-8000000" name="priceRange" id="price_3"
-									<c:if test="${param.priceRange != null && param.priceRange.contains('5000000-8000000')}">checked</c:if>>
-									<label for="price_3">5.000.000 - 8.000.000</label></li>
-								<li class="list-group-item"><input type="checkbox"
-									value="8000000-900000000" name="priceRange" id="price_4"
-									<c:if test="${param.priceRange != null && param.priceRange.contains('8000000-900000000')}">checked</c:if>>
-									<label for="price_4">8.000.000 trở lên</label></li>
+<%--								<li class="list-group-item group-item-title">Lọc theo giá</li>--%>
+<%--								<li class="list-group-item"><input type="checkbox"--%>
+<%--									value="0-1000000" name="priceRange" id="price_1"--%>
+<%--									<c:if test="${param.priceRange != null && param.priceRange.contains('0-1000000')}">checked</c:if>>--%>
+<%--									<label for="price_1">0 - 1.000.000</label></li>--%>
+<%--								<li class="list-group-item"><input type="checkbox"--%>
+<%--									value="1000000-5000000" name="priceRange" id="price_2"--%>
+<%--									<c:if test="${param.priceRange != null && param.priceRange.contains('1000000-5000000')}">checked</c:if>>--%>
+<%--									<label for="price_2">1.000.000 - 5.000.000</label></li>--%>
+<%--								<li class="list-group-item"><input type="checkbox"--%>
+<%--									value="5000000-8000000" name="priceRange" id="price_3"--%>
+<%--									<c:if test="${param.priceRange != null && param.priceRange.contains('5000000-8000000')}">checked</c:if>>--%>
+<%--									<label for="price_3">5.000.000 - 8.000.000</label></li>--%>
+<%--								<li class="list-group-item"><input type="checkbox"--%>
+<%--									value="8000000-900000000" name="priceRange" id="price_4"--%>
+<%--									<c:if test="${param.priceRange != null && param.priceRange.contains('8000000-900000000')}">checked</c:if>>--%>
+<%--									<label for="price_4">8.000.000 trở lên</label></li>--%>
+									<li class="list-group-item group-item-title">Lọc theo giá</li>
+									<li class="list-group-item">
+										<input type="checkbox" value="1" name="priceRange" id="price_1"
+											   <c:if test="${selectedPriceRanges.contains('1')}">checked</c:if>>
+										<label for="price_1">0 - 1.000.000</label>
+									</li>
+									<li class="list-group-item">
+										<input type="checkbox" value="2" name="priceRange" id="price_2"
+											   <c:if test="${selectedPriceRanges.contains('2')}">checked</c:if>>
+										<label for="price_2">1.000.000 - 5.000.000</label>
+									</li>
+									<li class="list-group-item">
+										<input type="checkbox" value="3" name="priceRange" id="price_3"
+											   <c:if test="${selectedPriceRanges.contains('3')}">checked</c:if>>
+										<label for="price_3">5.000.000 - 8.000.000</label>
+									</li>
+									<li class="list-group-item">
+										<input type="checkbox" value="4" name="priceRange" id="price_4"
+											   <c:if test="${selectedPriceRanges.contains('4')}">checked</c:if>>
+										<label for="price_4">8.000.000 trở lên</label>
+									</li>
+
 							</ul>
 						</div>
 						<%-- <div class="card mt-3">

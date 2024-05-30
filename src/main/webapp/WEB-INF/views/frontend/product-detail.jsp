@@ -100,8 +100,9 @@
 						</div>
 						<div class="buy" style="width: 100%;">
 							<label for="">Số lượng</label> <input type="number"
-								name="quantity" id="quantity" value="1"
-								style="border: 1px solid black; width: 10%;">
+								name="quantity" id="quantity" value="1" min="1"
+								style="border: 1px solid black; width: 10%;"oninput="validateQuantity()">
+							<span id="quantityError" style="color: red; display: none;">Số lượng phải lớn hơn hoặc bằng 1.</span>
 						</div>
 					</div>
 
@@ -143,6 +144,7 @@
 
 	<jsp:include page="/WEB-INF/views/frontend/layout/js.jsp"></jsp:include>
 
+	<%-- Ẩn hiện mô tả sp	--%>
 	<script type="text/javascript">
         function toggleDescription() {
             var description = document.getElementById('productDescription');
@@ -152,6 +154,19 @@
         }
     </script>
 
+	<%-- Validate số lượng đặt	--%>
+	<script>
+		function validateQuantity() {
+			var quantityInput = document.getElementById('quantity');
+			var quantityError = document.getElementById('quantityError');
+			if (quantityInput.value < 1) {
+				quantityInput.value = 1; // Đặt lại giá trị thành 1
+				quantityError.style.display = 'inline'; // Hiển thị thông báo lỗi
+			} else {
+				quantityError.style.display = 'none'; // Ẩn thông báo lỗi nếu giá trị hợp lệ
+			}
+		}
+	</script>
 
 	<!-- Add to cart -->
 	<script type="text/javascript">

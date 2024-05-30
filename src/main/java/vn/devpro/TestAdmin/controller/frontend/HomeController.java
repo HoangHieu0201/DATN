@@ -2,10 +2,7 @@ package vn.devpro.TestAdmin.controller.frontend;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -103,7 +100,7 @@ public class HomeController extends BaseController implements FinalConstant {
 		String categoryId = request.getParameter("categoryId");
 		if (!StringUtils.isEmpty(categoryId)) { // Co chon category
 			productSearch.setCategoryId(Integer.parseInt(categoryId));
-			List<Product> products = productService.findByCategory(productSearch);
+			List<Product> products = productService.searchProduct(productSearch);
 			model.addAttribute("products", products);
 		} else {
 			// Nếu không có cái nào được chọn, hiển thị tất cả sản phẩm
@@ -116,7 +113,7 @@ public class HomeController extends BaseController implements FinalConstant {
 		String keyword = request.getParameter("keyword");
 		if (!StringUtils.isEmpty(keyword)) {
 			productSearch.setKeyword(keyword);
-			List<Product> products = productService.findByKeyword(productSearch);
+			List<Product> products = productService.searchProduct(productSearch);
 			model.addAttribute("products", products);
 		} else {
 			// Nếu không có keyword nào được chọn, hiển thị tất cả sản phẩm
@@ -133,7 +130,7 @@ public class HomeController extends BaseController implements FinalConstant {
 			endYear = request.getParameter("endYear");
 			productSearch.setBeginYear(beginYear);
 			productSearch.setEndYear(endYear);
-			List<Product> products = productService.findByReleaseYear(productSearch);
+			List<Product> products = productService.searchProduct(productSearch);
 			model.addAttribute("products", products);
 		} else {
 			// Nếu không có mức giá nào được chọn, hiển thị tất cả sản phẩm
@@ -141,17 +138,69 @@ public class HomeController extends BaseController implements FinalConstant {
 			model.addAttribute("products", products);
 		}
 
+
+//		// Tìm theo mức giá
+//		String[] priceRanges = request.getParameterValues("priceRange");
+//		if (priceRanges != null && priceRanges.length > 0) {
+//			List<Product> products = productService.findByPriceRange(priceRanges);
+//			model.addAttribute("products", products);
+//		} else {
+//			// Nếu không có mức giá nào được chọn, hiển thị tất cả sản phẩm
+//			List<Product> products = productService.searchProduct(productSearch);
+//			model.addAttribute("products", products);
+//		}
 
 		// Tìm theo mức giá
 		String[] priceRanges = request.getParameterValues("priceRange");
 		if (priceRanges != null && priceRanges.length > 0) {
-			List<Product> products = productService.findByPriceRange(priceRanges);
-			model.addAttribute("products", products);
-		} else {
-			// Nếu không có mức giá nào được chọn, hiển thị tất cả sản phẩm
+			// Initialize variables for the price boundaries
+			Integer beginPrice = null;
+			Integer endPrice = null;
+
+			// Loop through the selected price ranges to determine the boundaries
+			for (String priceRange : priceRanges) {
+				switch (priceRange) {
+					case "1":
+						beginPrice = 0;
+						endPrice = 1000000;
+						break;
+					case "2":
+						beginPrice = 1000000;
+						endPrice = 5000000;
+						break;
+					case "3":
+						beginPrice = 5000000;
+						endPrice = 8000000;
+						break;
+					case "4":
+						beginPrice = 8000000;
+						endPrice = 1000000000; // No upper limit
+						break;
+					default:
+						// Handle unexpected values if necessary
+						break;
+				}
+
+				// Set the price range in the productSearch object
+				if (beginPrice != null) {
+					productSearch.setBeginPrice(beginPrice.toString());
+				}
+				if (endPrice != null) {
+					productSearch.setEndPrice(endPrice.toString());
+				}
+			}
+
+			// Search products based on the set price range
 			List<Product> products = productService.searchProduct(productSearch);
 			model.addAttribute("products", products);
+			model.addAttribute("selectedPriceRanges", Arrays.asList(priceRanges));
+		} else {
+			// If no price range is selected, display all products
+			List<Product> products = productService.searchProduct(productSearch);
+			model.addAttribute("products", products);
+			model.addAttribute("selectedPriceRanges", new ArrayList<>()); // No selection
 		}
+
 
 		List<Category> categories = categoryService.findAllActive();
 		model.addAttribute("categories", categories);

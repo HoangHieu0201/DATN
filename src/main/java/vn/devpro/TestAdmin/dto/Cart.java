@@ -30,7 +30,7 @@ public class Cart{
 		return total;
 	}
 	
-	//Tim san phamtrong gio hang theo id
+	//Tim vi tri san pham trong gio hang theo id
 	public int findProductById(int id) {
 		for(int index = 0; index < productCarts.size(); index ++) {
 			if(productCarts.get(index).getProductId() == id) {
